@@ -2,13 +2,13 @@
 
 	
 		<div> 
-			{{{ $department->id }}} : {{{ $department->name }}} <br/>
+			{{{ $department->id }}} : {{{ $department->getName() }}} <br/>
 			
 			department courses: <br>
 			@foreach($department->courses as $course)
 				<div> 
 					{{{ $course->code }}} : {{{ $course->name }}} 
-					<a href="/course/{{{ $course->id }}}"> {{{ trans('default.View Course')}}} </a>
+					<a href="/course/{{{ $course->code }}}"> {{{ trans('default.View Course')}}} </a>
 				</div>
 			@endforeach
 			<a href="/departments"> {{{ trans('default.back')}}} </a>

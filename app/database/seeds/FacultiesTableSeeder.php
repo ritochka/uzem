@@ -11,10 +11,18 @@ class FacultiesTableSeeder extends Seeder
 		$faculties = array(
 			['id'   	      => 6,
 			'name'        	  => 'Engineering',
+			'en'        	  => 'Engineering',
+			'kg'        	  => 'Инженердик',
+			'ru'        	  => 'Инженерия',
+			'tr'        	  => 'Mühendislik',
 			'created_at'  	  => date('Y-m-d H:i:s'),
 			'updated_at'  	  => date('Y-m-d H:i:s')],
 			['id'   	      => 5,
 			'name'        	  => 'Communication',
+			'en'        	  => 'Communication',
+			'kg'        	  => 'Коммуникациялык',
+			'ru'        	  => 'Коммуникация',
+			'tr'        	  => 'İletişim',
 			'created_at'  	  => date('Y-m-d H:i:s'),
 			'updated_at'  	  => date('Y-m-d H:i:s')],
 		);

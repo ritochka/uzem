@@ -18,5 +18,9 @@ return array(
 	'View Course'		=> 'View Course',
 	'back'				=> 'Back',
 	'Offered by'		=> 'Offered by',
+	'Faculty'		    => 'Faculty',
+	'Faculties'		    => 'Faculties',
+	'View faculty'		=> 'View faculty',
+	'View faculties'    => 'View faculties',
 
 );

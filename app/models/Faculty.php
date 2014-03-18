@@ -14,4 +14,9 @@ class Faculty extends Eloquent
 		return $this->hasMany('Department', 'faculty_id');
 	}
 
+	public function getName()
+	{
+		return $this[Config::get('app.locale')];
+	}
+
 }

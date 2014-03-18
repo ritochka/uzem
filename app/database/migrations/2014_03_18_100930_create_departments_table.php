@@ -18,6 +18,10 @@ class CreateDepartmentsTable extends Migration {
 			$table->tinyInteger('id')->primary();
 			$table->tinyInteger('faculty_id');
 			$table->string('name', 250);
+			$table->string('kg', 250);
+			$table->string('ru', 250);
+			$table->string('en', 250);
+			$table->string('tr', 250);
 			$table->timestamps();
 		});
 	}

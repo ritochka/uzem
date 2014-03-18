@@ -19,4 +19,9 @@ class Department extends Eloquent
 		return $this->hasMany('Course', 'department_id');
 	}
 
+	public function getName()
+	{
+		return $this[Config::get('app.locale')];
+	}
+
 }
