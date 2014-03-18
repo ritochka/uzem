@@ -1,4 +1,13 @@
 <?php
+//language-----------------------------------------------------------------------------------------
+Route::get("lang/{lang}", function($lang)
+{
+	$cookie = Cookie::forever('lang', $lang);
+	(Session::get('redir_url'))? $url = Session::get('redir_url') : $url = "/";
+	return Redirect::to($url)->withCookie($cookie);
+});
+//------------------------------------------------------------------------------------------------
+
 
 Route::get('/', 'HomeController@Index');
 

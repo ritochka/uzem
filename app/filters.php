@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-	//
+	if(Cookie::get('lang')) App::setLocale(Cookie::get('lang'));
+	Session::put('redir_url', URL::previous());
 });
 
 
@@ -73,6 +74,12 @@ Route::filter('guest', function()
 
 Route::filter('csrf', function()
 {
+	if (Request::ajax())
+	{
+		if (Session::token() != Request::header('X-CSRF-Token'))
+			throw new Illuminate\Session\TokenMismatchException;
+	}
+	else
 	if (Session::token() != Input::get('_token'))
 	{
 		throw new Illuminate\Session\TokenMismatchException;
