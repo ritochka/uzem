@@ -8,4 +8,9 @@ class Course extends Eloquent
 	{
 		$this->table = 'courses';
 	}
+
+	public function department()
+	{
+		return $this->belongsTo('Department', 'department_id');
+	}
 }

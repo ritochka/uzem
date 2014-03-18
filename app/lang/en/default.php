@@ -11,8 +11,12 @@ return array(
 	|
 	*/
 
-	'Courses'  => 'Courses',
-	'About us' => 'About Us',
-	'About'    => 'About',
+	'Courses'  			=> 'Courses',
+	'About us' 			=> 'About Us',
+	'About'   			=> 'About',
+	'MANAS Online'	   	=> 'MANAS Online',
+	'View Course'		=> 'View Course',
+	'back'				=> 'Back',
+	'Offered by'		=> 'Offered by',
 
 );

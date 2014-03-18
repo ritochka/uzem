@@ -16,4 +16,12 @@ class CourseController extends BaseController
 		$this->layout->title = 'Courses';
 		$this->layout->content = View::make('course.courses')->with('courses', $courses);
 	}
+
+	public function Course($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.course')->with('course', $course);
+	}
 }

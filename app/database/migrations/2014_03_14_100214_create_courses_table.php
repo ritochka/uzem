@@ -18,7 +18,14 @@ class CreateCoursesTable extends Migration {
 			$table->string('id', 100)->unique()->primary();
 			$table->string('code', 100);
 			$table->string('name', 250);
-			$table->text('description');
+			$table->tinyInteger('department_id')->nullable();
+			$table->tinyInteger('semester')->default(0);
+			$table->tinyInteger('credit')->default(0);
+			$table->tinyInteger('credit_theory')->default(0);
+			$table->tinyInteger('credit_practice')->default(0);
+			$table->tinyInteger('status')->default(0);
+			$table->mediumText('description');
+			$table->text('syllabus');
 			$table->timestamps();
 		});
 	}

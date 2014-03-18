@@ -25,4 +25,15 @@ Route::put('user/{id}/edit', 'UserController@putEdit');
 
 // course routes--------------------------------------
 Route::get('courses', 'CourseController@Courses');
+Route::get('course/{code}', 'CourseController@Course');
+//----------------------------------------------------
+
+// faculty routes--------------------------------------
+Route::get('faculties', 'FacultyController@Faculties');
+Route::get('faculty/{name}', 'FacultyController@Faculty');
+//----------------------------------------------------
+
+// faculty routes--------------------------------------
+Route::get('departments', 'DepartmentController@Departments');
+Route::get('department/{name}', 'DepartmentController@Department');
 //----------------------------------------------------
