@@ -22,6 +22,17 @@ class DatabaseSeeder extends Seeder {
 		$this->call('AffiliationsTableSeeder');
 		$this->call('InterestAreasTableSeeder');
 		$this->call('InterestAreasTeachersTableSeeder');
+		$this->call('PublicationsTableSeeder');
+		$this->call('PublicationsTypeTableSeeder');
+		$this->call('StaffEducationTableSeeder');
+		$this->call('DegreesTableSeeder');
+		$this->call('StudentsTableSeeder');
+		$this->call('NewsTableSeeder');
+		$this->call('VideoTableSeeder');
+		$this->call('AprogrammingTableSeeder');
+		$this->call('AwrittenTableSeeder');
+		$this->call('AquizesTableSeeder');
+		$this->call('AexamsTableSeeder');
 	}
 
 }

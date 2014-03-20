@@ -8,7 +8,32 @@
 	</div>
 </div>
 
-@foreach ($courses as $key => $course)
+@foreach ($news as $key => $new)
+<hr class="featurette-divider" @if($key == 0) style="display:none" @endif>
+<div class="row featurette">
+	@if($key % 2)	
+	<div class="col-md-5" style="margin-right: -5px; text-align: center">
+		<img class="featurette-image img-responsive visible-md visible-lg img-thumbnail" src="/img/course/ed_tech.jpg" alt="Generic placeholder image">
+	</div>
+	<div class="col-md-7">
+		<h2 class="featurette-heading"><a href="/">{{{ $new->title }}} </a><span class="text-muted">See for yourself.</span></h2>
+		<p class="lead featurette-text"> {{{$new->description}}} </p>
+	</div>
+	@else
+	<div class="col-md-7">
+		<h2 class="featurette-heading"><a href="/">{{{ $new->title }}} </a></h2>
+		<p class="lead featurette-text"> {{{$new->description}}} </p>
+	</div>
+	<div class="col-md-5" style="margin-left: -5px; text-align: center">
+		<img class="featurette-image img-responsive visible-md visible-lg img-thumbnail" src="/img/course/action_research.jpg" alt="Generic placeholder image">
+	</div>
+	@endif
+</div>
+@endforeach
+
+
+
+<!-- @foreach ($courses as $key => $course)
 <hr class="featurette-divider" @if($key == 0) style="display:none" @endif>
 <div class="row featurette">
 	@if($key % 2)	
@@ -17,19 +42,19 @@
 	</div>
 	<div class="col-md-7">
 		<h2 class="featurette-heading"><a href="/">{{{ $course->name }}} </a><span class="text-muted">See for yourself.</span></h2>
-		<p class="lead featurette-text">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		<p class="lead featurette-text"> {{{$course->description}}} </p>
 	</div>
 	@else
 	<div class="col-md-7">
 		<h2 class="featurette-heading"><a href="/">{{{ $course->name }}} </a></h2>
-		<p class="lead featurette-text">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		<p class="lead featurette-text"> {{{$course->description}}} </p>
 	</div>
 	<div class="col-md-5" style="margin-left: -5px; text-align: center">
 		<img class="featurette-image img-responsive visible-md visible-lg img-thumbnail" src="/img/course/action_research.jpg" alt="Generic placeholder image">
 	</div>
 	@endif
 </div>
-@endforeach
+@endforeach -->
 
 @stop
 

@@ -15,7 +15,7 @@ class CreateAffiliationsTable extends Migration {
 		Schema::create('affiliations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
-			$table->tinyInteger('id');
+			$table->tinyInteger('id')->primary();
 			$table->string('institution', 255);
 			$table->timestamps();
 		});

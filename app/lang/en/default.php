@@ -24,5 +24,12 @@ return array(
 	'View faculties'    => 'View faculties',
 	'Department courses'=> 'Department Courses',
 	'Credits'			=> 'Credits',
+	'Affiliation'		=> 'Affiliation',
+	'Office'			=> 'Office',
+	'email'				=> 'email',
+	'Area of Interests' => 'Area of Interests',
+	'Education'			=> 'Education',
+	'Department of'		=> 'Department of',
+	'Publications'		=> 'Publications',
 
 );

@@ -13,8 +13,9 @@ class HomeController extends BaseController
 	public function Index()
 	{
 		$courses = Course::all();
+		$news    = News::all();
 		
 		$this->layout->title = 'Home';
-		$this->layout->content = View::make('home.index', compact('courses'));
+		$this->layout->content = View::make('home.index', compact('courses', 'news'));
 	}
 }

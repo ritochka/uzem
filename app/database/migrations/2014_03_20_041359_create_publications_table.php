@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInterestAreasTable extends Migration {
+class CreatePublicationsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,13 @@ class CreateInterestAreasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('interest_areas', function(Blueprint $table)
+		Schema::create('publications', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 			$table->tinyInteger('id')->primary();
-			$table->string('area', 255);
+			$table->string('instr_id', 100);
+			$table->string('title', 255);
+			$table->tinyInteger('type');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +30,7 @@ class CreateInterestAreasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('interest_areas');
+		Schema::drop('publications');
 	}
 
 }

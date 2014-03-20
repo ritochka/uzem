@@ -1,7 +1,7 @@
 @section('content')
 
 	<div> 
-		{{{ $user->firstname }}} - {{{ $user->lastname }}} <!-- <a href="/user/{{{ $user->id }}}/edit">edit</a> --> 
+		{{{ $user->firstname }}} {{{ $user->lastname }}} <!-- <a href="/user/{{{ $user->id }}}/edit">edit</a> --> 
 	</div>
 	<table class="table table-primary">
 		<tr>
@@ -38,11 +38,31 @@
 				@endforeach
 			</th>
 		</tr>
+		<tr>
+			<th>
+				{{{ trans('default.Education')}}}
+			</th>
+			<th>
+				@foreach($user->educations as $education)
+					{{{ $education->edtype->degree}}}: 
+					{{{ $education->studied->institution}}},
+					{{{ trans('default.Department of')}}}
+						{{{ $education->department}}},
+					{{{ $education->graduated}}} <br/>
+				@endforeach
+			</th>
+		</tr>
 	</table>
-	@foreach ($user->courses as $course)
-		{{{ $course->code }}} {{{ $course->name }}} 
-	@endforeach	
-
+	{{{trans('default.Courses')}}}: <br/>
+		@foreach ($user->courses as $course)
+			<a href="/course/{{{ $course->code }}}"> 
+				{{{ $course->code }}} {{{ $course->name }}} 
+			</a> <br/>
+		@endforeach
+	{{{trans('default.Publications')}}}:	<br/>
+		@foreach ($user->publications as $publication)
+			{{{ $publication->title }}}<br/>
+		@endforeach
 	
 
 @stop
