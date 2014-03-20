@@ -13,4 +13,9 @@ class Course extends Eloquent
 	{
 		return $this->belongsTo('Department', 'department_id');
 	}
+
+	public function instructors()
+	{
+		return $this->belongsToMany('User', 'instr_course', 'course_id', 'instr_id');
+	}
 }

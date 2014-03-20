@@ -1,5 +1,5 @@
 html,
-body
+
 {
 	min-height: 100%;
 }
@@ -26,6 +26,7 @@ body *
 .container
 {
 	/*padding: 0;*/
+	
 }
 
 @media (min-width: 768px) {
@@ -40,4 +41,12 @@ body *
 	top: 0;
 	line-height: inherit;
 	vertical-align: middle;
+}
+
+.footer
+{
+	bottom: 0;
+	height: 60px;
+	width: 100%;
+	background-color: #f5f5f5;
 }

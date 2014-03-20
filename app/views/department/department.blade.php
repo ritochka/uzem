@@ -2,7 +2,7 @@
 
 	
 		<div> 
-			{{{ $department->id }}} : {{{ $department->getName() }}} <br/>
+			{{{ $department->getName() }}} <br/>
 			
 			{{{ trans('default.Department Courses')}}}: <br>
 			@foreach($department->courses as $course)

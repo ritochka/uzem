@@ -23,5 +23,6 @@ return array(
 	'View faculty'		=> 'View faculty',
 	'View faculties'    => 'View faculties',
 	'Department courses'=> 'Department Courses',
+	'Credits'			=> 'Credits',
 
 );
