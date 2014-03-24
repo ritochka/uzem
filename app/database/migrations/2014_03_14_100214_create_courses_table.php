@@ -26,6 +26,7 @@ class CreateCoursesTable extends Migration {
 			$table->tinyInteger('status')->default(0);
 			$table->mediumText('description');
 			$table->text('syllabus');
+			$table->text('agreement_text');
 			$table->timestamps();
 		});
 	}

@@ -30,6 +30,11 @@ return array(
 	'Area of Interests' => 'Area of Interests',
 	'Education'			=> 'Education',
 	'Department of'		=> 'Department of',
+	'Faculty of'		=> 'Faculty of',
 	'Publications'		=> 'Publications',
+	'Instructor'		=> 'Instructor',
+	'Enroll in class'	=> 'Enroll in class',
+	'I agree'			=> 'I agree',
+	'Agreement'			=> 'Agreement',
 
 );

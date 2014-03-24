@@ -26,6 +26,8 @@ Route::put('user/{id}/edit', 'UserController@putEdit');
 // course routes--------------------------------------
 Route::get('courses', 'CourseController@Courses');
 Route::get('course/{code}', 'CourseController@Course');
+Route::get('agreement/{code}', 'CourseController@Agreement');
+Route::get('inclass/{code}', 'CourseController@Inclass');
 //----------------------------------------------------
 
 // faculty routes--------------------------------------

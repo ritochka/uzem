@@ -9,7 +9,7 @@
 						{{{trans('default.Offered by')}}}  
 					</th>
 					<th>
-						{{{ $course->department->getName() }}}, {{{trans('default.Faculty')}}} {{{ $course->department->faculty->getName() }}} <br/>
+						{{{ $course->department->getName() }}}, {{{trans('default.Faculty of')}}} {{{ $course->department->faculty->getName() }}} <br/>
 					</th>
 				</tr>
 				<tr>
@@ -40,6 +40,9 @@
 					</th>
 				</tr>
 			</table>
+			<a class="btn btn-primary" href="/agreement/{{{ $course->code}}}" >
+				{{{ trans('default.Enroll in class') }}}
+			</a><br/> 
 			<a href="/courses"> {{{ trans('default.back')}}} </a>
 		</div>
 	
