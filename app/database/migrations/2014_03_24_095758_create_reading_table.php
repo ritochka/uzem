@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAquizesTable extends Migration {
+class CreateReadingTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class CreateAquizesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('aquizes', function(Blueprint $table)
+		Schema::create('reading', function(Blueprint $table)
 		{
 			$table->engine = 'InndoDB';
 			$table->integer('id')->primary();
 			$table->string('course_id', 100);
 			$table->tinyInteger('week');
 			$table->string('title', 100);
-			$table->text('assignment');
+			$table->text('reading_text');
 			$table->string('url', 255);
 			$table->timestamps();
 		});
@@ -32,7 +32,7 @@ class CreateAquizesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('aquizes');
+		Schema::drop('reading');
 	}
 
 }

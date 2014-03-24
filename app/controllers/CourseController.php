@@ -40,4 +40,52 @@ class CourseController extends BaseController
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.class')->with('course', $course);
 	}
+
+	public function Awritten($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.awritten')->with('course', $course);
+	}
+
+	public function Aprogramming($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.aprogramming')->with('course', $course);
+	}
+
+	public function Aquizes($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.aquizes')->with('course', $course);
+	}
+
+	public function Aexams($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.aexams')->with('course', $course);
+	}
+
+	public function Video($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.video')->with('course', $course);
+	}
+
+	public function Reading($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.reading')->with('course', $course);
+	}
 }

@@ -17,6 +17,7 @@ class CreateAexamsTable extends Migration {
 			$table->engine = 'InndoDB';
 			$table->integer('id')->primary();
 			$table->string('course_id', 100);
+			$table->tinyInteger('week');
 			$table->string('title', 100);
 			$table->text('assignment');
 			$table->string('url', 255);

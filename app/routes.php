@@ -28,6 +28,12 @@ Route::get('courses', 'CourseController@Courses');
 Route::get('course/{code}', 'CourseController@Course');
 Route::get('agreement/{code}', 'CourseController@Agreement');
 Route::get('inclass/{code}', 'CourseController@Inclass');
+Route::get('inclass/{code}/awritten', 'CourseController@Awritten'); // awitten = written assignments
+Route::get('inclass/{code}/aprogramming', 'CourseController@Aprogramming'); // aprogramming = programming assignments
+Route::get('inclass/{code}/aquizes', 'CourseController@Aquizes'); // aquizes = quizes
+Route::get('inclass/{code}/aexams', 'CourseController@Aexams'); // aexams = exams
+Route::get('inclass/{code}/video', 'CourseController@Video'); 
+Route::get('inclass/{code}/reading', 'CourseController@Reading'); // areading = reading assignments
 //----------------------------------------------------
 
 // faculty routes--------------------------------------

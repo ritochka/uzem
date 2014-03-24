@@ -11,6 +11,7 @@ class AexamsTableSeeder extends Seeder
 		$aexams = array(
 			['id'        => 1,
 			'course_id'  => '52c43398d6a6b',
+			'week'		 => 1,
 			'title'		 => 'Mid-term 1',
 			'assignment' => 'do this and that and that',
 			'url'		 => '/img/exams/exam1.pdf',	
@@ -18,6 +19,7 @@ class AexamsTableSeeder extends Seeder
 			'updated_at' => date('Y-m-d H:i:s')],
 			['id'        => 2,
 			'course_id'  => '52c43398d6ac0',
+			'week'		 => 1,
 			'title'		 => 'Mid-term 1',
 			'assignment' => 'do this and that and that',
 			'url'		 => '/img/exams/exam2.pdf',	
@@ -25,6 +27,7 @@ class AexamsTableSeeder extends Seeder
 			'updated_at' => date('Y-m-d H:i:s')],
 			['id'        => 3,
 			'course_id'  => '52c43398d6ac0',
+			'week'		 => 2,
 			'title'		 => 'Mid-term 2',
 			'assignment' => 'do this and that and that',
 			'url'		 => '/img/exams/exam3.pdf',	
