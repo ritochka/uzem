@@ -11,10 +11,11 @@ class CourseController extends BaseController
 
 	public function Courses()
 	{
-		$courses = Course::all();
+		// $courses = Course::all();
+		$faculties = Faculty::all();
 
 		$this->layout->title = 'Courses';
-		$this->layout->content = View::make('course.courses')->with('courses', $courses);
+		$this->layout->content = View::make('course.courses')->with('faculties', $faculties);
 	}
 
 	public function Course($code)
@@ -33,10 +34,20 @@ class CourseController extends BaseController
 		$this->layout->content = View::make('course.agreement')->with('course', $course);
 	}
 
+	public function Agreementreminder($code)
+	{
+		$course = Course::where('code', $code)->first();
+
+		$this->layout=View::make('layouts.sidebar');
+		$this->layout->title = $course->name;
+		$this->layout->content = View::make('course.agreementreminder')->with('course', $course);
+	}
+
 	public function Inclass($code)
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.class')->with('course', $course);
 	}
@@ -45,6 +56,7 @@ class CourseController extends BaseController
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.awritten')->with('course', $course);
 	}
@@ -53,6 +65,7 @@ class CourseController extends BaseController
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.aprogramming')->with('course', $course);
 	}
@@ -61,6 +74,7 @@ class CourseController extends BaseController
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.aquizes')->with('course', $course);
 	}
@@ -69,6 +83,7 @@ class CourseController extends BaseController
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.aexams')->with('course', $course);
 	}
@@ -77,6 +92,7 @@ class CourseController extends BaseController
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.video')->with('course', $course);
 	}
@@ -85,6 +101,7 @@ class CourseController extends BaseController
 	{
 		$course = Course::where('code', $code)->first();
 
+		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.reading')->with('course', $course);
 	}

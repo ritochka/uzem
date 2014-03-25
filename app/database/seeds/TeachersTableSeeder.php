@@ -11,7 +11,7 @@ class TeachersTableSeeder extends Seeder
 		$teachers = array(
 			['id'         => '52bee44d472ed',
 			'affiliation_id' => 1,
-			'departament' => 24,
+			'department_id' => 24,
 			'office'  	  => 'Communication, B101',
 			'phone'   	  => '+996312000000',
 			'web'		  => 'www.manas.edu.kg',
@@ -21,7 +21,7 @@ class TeachersTableSeeder extends Seeder
 			'updated_at'  => date('Y-m-d H:i:s')],
 			['id'         => '52bee44d617fc',
 			'affiliation_id' => 1,
-			'departament' => 24,
+			'department_id' => 24,
 			'office'  	  => 'Communication, B101',
 			'phone'   	  => '+996312000001',
 			'web'		  => 'www.manas.edu.kg',

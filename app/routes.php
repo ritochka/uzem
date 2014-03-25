@@ -18,6 +18,7 @@ Route::post('logout', 'AdminController@pLogout');
 //----------------------------------------------------
 
 // user routes----------------------------------------
+Route::get('teachers'	   , 'UserController@Teachers');
 Route::get('user/{id}'     , 'UserController@User');
 Route::get('user/{id}/edit', 'UserController@Edit');
 Route::put('user/{id}/edit', 'UserController@putEdit');
@@ -27,6 +28,7 @@ Route::put('user/{id}/edit', 'UserController@putEdit');
 Route::get('courses', 'CourseController@Courses');
 Route::get('course/{code}', 'CourseController@Course');
 Route::get('agreement/{code}', 'CourseController@Agreement');
+Route::get('inclass/{code}/agreementreminder', 'CourseController@Agreementreminder');
 Route::get('inclass/{code}', 'CourseController@Inclass');
 Route::get('inclass/{code}/awritten', 'CourseController@Awritten'); // awitten = written assignments
 Route::get('inclass/{code}/aprogramming', 'CourseController@Aprogramming'); // aprogramming = programming assignments

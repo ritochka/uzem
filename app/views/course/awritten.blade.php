@@ -19,3 +19,8 @@
 </div>
 
 @endsection
+
+
+@section('sidebar')
+@include('partials.course-sidebar')
+@stop

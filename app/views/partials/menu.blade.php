@@ -11,9 +11,12 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
+				<li><a href="#">{{{ trans('default.About us') }}}</a></li>
 				<li><a href="/courses">{{{ trans('default.Courses') }}}</a></li>
 				<li><a href="/faculties">{{{ trans('default.Faculties') }}}</a></li>
-				<li><a href="#">{{{ trans('default.About us') }}}</a></li>
+				<li><a href="/teachers">{{{ trans('default.People') }}}</a></li>
+				<li><a href="#">{{{ trans('default.Contact Us') }}}</a></li>
+				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				@if(Auth::check())

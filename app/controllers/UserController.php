@@ -9,6 +9,14 @@ class UserController extends BaseController
 		$this->beforeFilter('csrf', ['on' => ['post', 'put', 'delete']]);
 	}
 
+	public function Teachers()
+	{
+		$faculties = Faculty::all();
+
+		$this->layout->title = 'Teachers';
+		$this->layout->content = View::make('user.teachers')->with('faculties', $faculties);
+	}
+
 	public function User($id)
 	{
 		$user = User::find($id);

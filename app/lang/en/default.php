@@ -29,6 +29,7 @@ return array(
 	'email'						 => 'email',
 	'Area of Interests' 		 => 'Area of Interests',
 	'Education'					 => 'Education',
+	'Department'				 => 'Department',
 	'Department of'				 => 'Department of',
 	'Faculty of'				 => 'Faculty of',
 	'Publications'				 => 'Publications',
@@ -42,9 +43,13 @@ return array(
 	'Description'				 => 'Description',
 	'Programming Assignments' 	 => 'Programming Assignments',
 	'Exams'						 => 'Exams',
-	'Quizes'					 => 'Quizes',
+	'Quizes'					 => 'Quizzes',
 	'Quiz'						 => 'Quiz',
 	'Video'						 => 'Video',
-	'Reading'					 => 'Reading'
+	'Reading'					 => 'Reading',
+	'Reading Materials'			 => 'Reading Materials',
+	'Contact Us'				 => 'Contact Us',
+	'People'					 => 'People',
+
 
 );
