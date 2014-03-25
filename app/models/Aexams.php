@@ -16,7 +16,7 @@ class Aexams extends Eloquent {
 
 	public function course()
 	{
-		return $this->hasOne('Courses', 'course_id');
+		return $this->hasOne('Course', 'course_id');
 	}
 	
 }

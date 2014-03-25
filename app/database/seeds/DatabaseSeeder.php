@@ -33,7 +33,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('AwrittenTableSeeder');
 		$this->call('AquizesTableSeeder');
 		$this->call('AexamsTableSeeder');
-		$this->call('ReadingTableSeeder');
+		$this->call('ReadingTableSeeder');		
+		$this->call('RolesTableSeeder');
+		$this->call('UserRolesTableSeeder');
 		$this->call('AcademicTitlesTableSeeder');
 		$this->call('PositionsTableSeeder');
 	}

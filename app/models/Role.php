@@ -1,6 +1,6 @@
 <?php
 
-class Aquizes extends Eloquent {
+class Role extends Eloquent {
 
 	/**
 	 * The database table used by the model.
@@ -11,12 +11,12 @@ class Aquizes extends Eloquent {
 
 	public function __construct()
 	{
-		$this->table = 'aquizes';
+		$this->table = 'roles';
 	}
 
-	public function course()
+	public function users()
 	{
-		return $this->hasOne('Course', 'course_id');
+		return $this->belongsToMany('User', 'user_roles');
 	}
 	
 }
