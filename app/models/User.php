@@ -64,6 +64,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasOne('Teacher', 'id');
 	}
 
+	public function roles()
+	{
+		return $this->belongsToMany('Role', 'user_roles');
+	}
+
 	public function interestareas()
 	{
 		return $this->belongsToMany('InterestAreas', 'interest_areas_teachers', 'instr_id', 'area_id');
@@ -77,6 +82,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function educations()
 	{
 		return $this->hasMany('StaffEducation', 'user_id');
+	}
+
+	public function hasRoles($roles)
+	{
+		foreach ($roles as $role)
+		{
+			if(in_array($role, array_fetch($this->roles->toArray(), 'name')))
+				return true;
+		}
+
+		return false;
 	}
 	
 }
