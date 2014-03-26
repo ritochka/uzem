@@ -7,6 +7,7 @@ class CourseController extends BaseController
 		$this->layout = 'layouts.default';
 
 		$this->beforeFilter('csrf', ['on' => ['post', 'put', 'delete']]);
+		$this->beforeFilter('auth', ['on' => ['post', 'put', 'delete']]);
 	}
 
 	public function Courses()
@@ -28,6 +29,9 @@ class CourseController extends BaseController
 
 	public function Agreement($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout->title = $course->name;
@@ -36,6 +40,9 @@ class CourseController extends BaseController
 
 	public function Agreementreminder($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -45,6 +52,9 @@ class CourseController extends BaseController
 
 	public function Inclass($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -54,6 +64,9 @@ class CourseController extends BaseController
 
 	public function Awritten($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -63,6 +76,9 @@ class CourseController extends BaseController
 
 	public function Aprogramming($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -72,6 +88,9 @@ class CourseController extends BaseController
 
 	public function Aquizes($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -81,6 +100,9 @@ class CourseController extends BaseController
 
 	public function Aexams($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -90,6 +112,9 @@ class CourseController extends BaseController
 
 	public function Video($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
@@ -99,6 +124,9 @@ class CourseController extends BaseController
 
 	public function Reading($code)
 	{
+		if(!Auth::user()->hasRoles(['student', 'teacher']))
+			return Redirect::to('login');
+		
 		$course = Course::where('code', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');

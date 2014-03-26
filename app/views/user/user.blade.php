@@ -13,7 +13,7 @@
 </div>
 <hr>
 <div>
-	@if(Auth::user()->hasRoles(['admin', 'moder']))
+	@if(Auth::user()->hasRoles(['teacher']))
 	<p>true</p>
 	@else
 	<p>false</p>
