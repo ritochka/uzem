@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
 			'updated_at' => date('Y-m-d H:i:s')],
 			['id'        => '52bee44d472ec',
 			'email'      => 'ritochkina@gmail.com',
-			'password'   => Hash::make('rita'),
+			'password'   => Hash::make('ritochka'),
 			'firstname'  => 'Rita',
 			'lastname'   => 'Ismailova',
 			'position'		 => 1,
