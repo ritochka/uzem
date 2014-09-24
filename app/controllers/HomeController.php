@@ -5,7 +5,7 @@ class HomeController extends BaseController
 
 	public function __construct()
 	{
-		$this->layout = 'layouts.default';
+		$this->layout = 'layouts.home';
 
 		$this->beforeFilter('csrf', ['on' => ['post', 'put', 'delete']]);
 	}

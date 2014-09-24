@@ -28,6 +28,15 @@ class UserController extends BaseController
 		$this->layout->content = View::make('user.user')->with('user', $user);
 	}
 
+	public function Mycourses($id)
+	{
+		$user = User::find($id);
+
+		
+		$this->layout->title = 'My Courses';
+		$this->layout->content = View::make('user.mycourses')->with('user', $user);
+	}
+
 	public function Edit($id)
 	{
 		$user = User::find($id);

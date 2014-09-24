@@ -8,4 +8,14 @@ class News extends Eloquent
 	{
 		$this->table = 'news';
 	}
+
+	public function getName()
+	{
+		return $this->title;
+	}
+
+	public function getDescription()
+	{
+		return $this->description;
+	}
 }

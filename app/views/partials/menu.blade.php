@@ -25,6 +25,8 @@
 					<ul class="dropdown-menu">
 						<li><a href="/user/{{{ Auth::user()->id }}}"><span class="glyphicon glyphicon-user"></span> &nbsp; profile</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> &nbsp; message <span class="badge">0</span></a></li>
+						<li><a href="/mycourses/{{{ Auth::user()->id }}}"><span class="glyphicon glyphicon-book"></span> &nbsp; my courses <span class="badge"> {{{ Auth::user()->mycoursesnumber() }}} </span></a></li>
+						<li><a href="/user/{{{ Auth::user()->id }}}/edit"><span class="glyphicon glyphicon-wrench"></span> &nbsp; settings </a></li>
 						<li class="divider"></li>
 						<li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span> &nbsp; logout</a></li>
 					</ul>

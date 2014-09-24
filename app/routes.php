@@ -22,6 +22,7 @@ Route::get('teachers'	   , 'UserController@Teachers');
 Route::get('user/{id}'     , 'UserController@User');
 Route::get('user/{id}/edit', 'UserController@Edit');
 Route::put('user/{id}/edit', 'UserController@putEdit');
+Route::get('mycourses/{id}', 'UserController@Mycourses');
 //----------------------------------------------------
 
 // course routes--------------------------------------
