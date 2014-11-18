@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title> {{{ trans('default.24') }}} </title>
+<title> {{{ trans('default.MANAS Online') }}} </title>
 <head>
 	<title>{{{ $title }}}</title>
 	<meta charset="UTF-8">

@@ -11,8 +11,10 @@ return array(
 	|
 	*/
 
+	'DEC'						 => 'Центр Дистанционного Обучения',
 	'Courses'  					 => 'Курсы',
 	'About us' 					 => 'О Нас',
+	'Contact Us'				 => 'Контакты',
 	'About'    					 => 'О',
 	'MANAS Online'	   			 => 'MANAS Online',
 	'View Course'				 => 'Смотреть',
@@ -44,6 +46,7 @@ return array(
 	'View faculties'             => 'Посмотреть Факультеты',
 	'Department courses'         => 'Уроки',
 	'Departments'		         => 'Отделения',
+	'KTMU - Address'			 => '720044 Проспек Мира, 56, Бишкек, Кыргызская Республика | +996 (312) 54 19 41-47 | online@manas.edu.kg',
 	'KTMU'						 => 'КЫРГЫЗСКО ТУРЕЦКИЙ УНИВЕРСИТЕТ МАНАС',
 	'KTMU2'						 => 'КЫРГЫЗСКО ТУРЕЦКИЙ <span class="logo-color">УНИВЕРСИТЕТ МАНАС</span>',
 	'Contacts'				     => 'О Нас',

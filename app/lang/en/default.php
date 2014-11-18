@@ -11,6 +11,7 @@ return array(
 	|
 	*/
 
+	'DEC'						 => 'Distance Education Center',
 	'Courses'  					 => 'Courses',
 	'About us' 					 => 'About Us',
 	'About'   					 => 'About',
@@ -102,7 +103,7 @@ return array(
 	'Theses and Term Projects'	 => 'Theses and Term Projects',
 	'Projects'					 => 'Projects',
 	'Course description'		 => 'Course description',
-	'KTMU - Address'			 => '720044 Mira ave., 56, Bishkek, Kyrgyz Republic | +996 (312) 54 19 41-47 |',
+	'KTMU - Address'			 => '720044 Tynchtyk ave., 56, Bishkek, Kyrgyz Republic | +996 (312) 54 19 41-47 | online@manas.edu.kg',
 	'KTMU'						 => 'KYRGYZ TURKISH MANAS UNIVERSITY',
 	'KTMU2'						 => 'KYRGYZ TURKISH <span class="logo-color">MANAS UNIVERSITY</span>',
 	'Week Schedule'				 => 'Week Schedule',

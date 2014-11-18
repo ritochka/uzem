@@ -1,5 +1,6 @@
 <?php
 //language-----------------------------------------------------------------------------------------
+
 Route::get("lang/{lang}", function($lang)
 {
 	$cookie = Cookie::forever('lang', $lang);
@@ -12,9 +13,9 @@ Route::get("lang/{lang}", function($lang)
 Route::get('/', 'HomeController@Index');
 
 // admin routes---------------------------------------
-Route::get ('login' , 'AdminController@Login');
+/*Route::get ('login' , 'AdminController@Login');
 Route::post('login' , 'AdminController@pLogin');
-Route::post('logout', 'AdminController@pLogout');
+Route::post('logout', 'AdminController@pLogout');*/
 //----------------------------------------------------
 
 // user routes----------------------------------------
