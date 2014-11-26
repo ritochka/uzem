@@ -2,11 +2,22 @@
 
 class Department extends Eloquent
 {
-	public $table;
+	// Don't forget to fill this array
+	// protected $fillable   = [];
 
+	// protected $guarded    = [];
+	// protected $softDelete = true;
+
+	// Add your validation rules here
+	// public static $rules = [
+		// 'title' => 'required'
+	// ];
+	
 	public function __construct()
 	{
-		$this->table = 'departments';
+		$this->connection = 'depconnection';
+		$this->table = 'department';
+		$this->timestamps = false;
 	}
 
 	public function faculty()
@@ -16,17 +27,23 @@ class Department extends Eloquent
 
 	public function courses()
 	{
-		return $this->hasMany('Course', 'department_id');
+		return $this->hasMany('Course', 'department_id', 'personeldb_id');
 	}
 
-	public function teachers()
+	public function users()
 	{
-		return $this->hasMany('Teacher', 'department_id');
+		return $this->hasMany('User', 'user_id');
 	}
 
 	public function getName()
 	{
-		return $this[Config::get('app.locale')];
+		return $this[App::getLocale()];
 	}
+
+	// public function getPage($page)
+	// {
+	// 	$page = $this->where('page_name', '=', $page)->first();
+	// 	return $page['page_'.Config::get('app.locale')];
+	// }
 
 }

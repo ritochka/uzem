@@ -5,7 +5,9 @@
 			@if(App::getLocale() == 'fr')
 			<img src="/img/logo.png" style="display:inline-block; width: 80px; margin-top:5px;">
 			<div style="display:inline-block; font-size:18px; vertical-align:bottom; margin-left: 5px; font-weight:bold; color: #2a6496;">
-				{{ trans('default.KTMU')}}
+				<a href="http://manas.edu.kg" style="text-decoration:none">
+					{{ trans('default.KTMU')}}
+				</a>
 				<div style="font-size:24px; text-align:center; color: #dc3338;">{{ trans('default.DEC')}}</div>
 			</div>
 			@else

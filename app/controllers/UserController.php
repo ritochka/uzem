@@ -2,11 +2,207 @@
 
 class UserController extends BaseController
 {
+
+
 	public function __construct()
 	{
 		$this->layout = 'layouts.default';
 
 		$this->beforeFilter('csrf', ['on' => ['post', 'put', 'delete']]);
+		$this->beforeFilter('auth', ['on' => 'post']);
+
+		$this->beforeFilter(function()
+		{	
+			if(Auth::check() && Hash::check(Auth::user()->kimlik, Auth::user()->getAuthPassword()))
+				return Redirect::to('/department/' . Auth::user()->department->name . '/user/'. Auth::user()->kimlik . '/editpass');
+		}, ['except' => ['PasswordChange', 'PostPasswordChange']]);
+		
+	}
+
+	public function User($kimlik)
+	{
+		$user = User::where('kimlik', '=', $kimlik)->firstOrFail();
+
+		$this->layout->title = $user->firstname . ' ' . $user->lastname;
+		$this->layout->content = View::make('user.user')->with('user', $user);
+	}
+
+	/*public function DepartmentUser($depname, $email)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		View::share('department', $department);
+
+		$user = User::where('email', '=', $email)->firstOrFail();
+
+		$this->layout = View::make('department.layouts.full');
+		$this->layout->title = $user->firstname . ' ' . $user->lastname;
+		$this->layout->content = View::make('user.user')->with('user', $user);
+	}
+	*/
+	public function DepartmentUser($depname, $kimlik)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+		
+		View::share('department', $department);
+
+		try
+		{
+			$user = Rehber::where('Kimlik', '=', $kimlik)->firstOrFail();
+			$user2 = User::where('kimlik', '=', $kimlik)->firstOrFail();
+		}
+		catch (Exception $e)
+		{
+			return Redirect::to('/department/' . $depname . '/home');
+		}
+
+		$this->layout = View::make('department.layouts.full');
+		$this->layout->title = $user->Name . ' ' . $user->Surname;
+		$this->layout->content = View::make('user.personel')->with('user', $user)->with('user2', $user2)->with('courses', $user->courses());
+	}
+
+	public function EditDepartmentUser($depname, $kimlik)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		View::share('department', $department);
+
+		$user = User::where('kimlik', '=', $kimlik)->firstOrFail();
+
+		if(Auth::check() && $user->kimlik == Auth::user()->kimlik && $user->department_id == $department->personeldb_id)
+		{
+			$this->layout = View::make('department.layouts.full');
+			$this->layout->title = $user->firstname . ' ' . $user->lastname;
+			$this->layout->content = View::make('user.edit')->with('user', $user);
+		}
+		else
+		{
+			return Redirect::to('/department/' . $depname . '/home');
+		}
+
+	}
+
+	public function UpdateDepartmentUser($depname, $kimlik)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		try
+		{
+			$user = User::where('kimlik', '=', $kimlik)->firstOrFail();
+		}
+		catch (ModelNotFoundException $e)
+		{
+			return Redirect::action('DepartmentUser', [$depname, $kimlik]);
+		}
+
+		if(Auth::check() && $user->kimlik == Auth::user()->kimlik && $user->department_id == $department->personeldb_id)
+		{
+
+			$input = Input::all();
+			$validation = Validator::make($input, ['education' => '', 'publication' => '']);
+
+			if ($validation->passes())
+			{
+				//$user->education = $input['education'];
+				$user['education_'.App::getLocale()] = $input['education'];
+				$user['publication_'.App::getLocale()] = $input['publication'];
+				//$user->publication = $input['publication'];
+				$user->save();
+
+				return Redirect::to('department/'.$depname.'/user/'.$kimlik.'/profile');
+			}
+
+			return Redirect::to('department/'.$depname.'/user/'.$kimlik.'/edit')->withInput()->withErrors($validation);
+		}
+		else
+		{
+			return Redirect::to('/department/' . $depname . '/home');
+		}
+
+	}
+
+
+	public function DepartmentUserPicture($depname, $kimlik)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		View::share('department', $department);
+
+		$user = User::where('kimlik', '=', $kimlik)->firstOrFail();
+
+		$this->layout = View::make('department.layouts.full');
+		$this->layout->title = $user->firstname . ' ' . $user->lastname;
+		$this->layout->content = View::make('user.picture')->with('user', $user);
+	}
+
+	public function UpdateDepartmentUserPicture($depname, $kimlik)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		View::share('department', $department);
+
+		$user = User::where('kimlik', '=', $kimlik)->firstOrFail();
+
+		$file  = Input::get('dataUrl');
+		$crop  = Input::get('coords');
+
+		if($file != "" && $crop != "")
+		{
+			$targ_w = 400;
+			$targ_h = 400;
+			$quality = 80;
+
+			$crop  = json_decode($crop, true);
+			$file  = base64_decode($file);
+			$img_r = imagecreatefromstring($file);				
+			$dst_r = ImageCreateTrueColor($targ_w, $targ_h);
+
+			imagecopyresampled($dst_r, $img_r, 0, 0, $crop['x'], $crop['y'], $targ_w, $targ_h, $crop['w'], $crop['h']);
+
+			$path = "img/profile/";
+			$name = $user->id.".jpg";
+
+			if(!File::isDirectory($path))
+				File::makeDirectory($path);
+
+			imagejpeg($dst_r, $path.$name, $quality);
+			imagedestroy($dst_r); // release from memory
+			
+			return Redirect::action('UserController@DepartmentUser', [$depname, $kimlik]);
+		}
+
+		return Redirect::action('UserController@DepartmentUserPicture', [$depname, $kimlik])->withInput();
+	}
+
+	public function PasswordChange($depname)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		View::share('department', $department);
+
+		$this->layout = View::make('department.layouts.full');
+		$this->layout->title = trans('default.Home');
+		$this->layout->content = View::make('user.editpass');
+	}
+
+	public function PostPasswordChange($depname)
+	{
+		$department = Department::where('name', '=', $depname)->firstOrFail();
+
+		View::share('department', $department);
+
+		$input = Input::all();
+		$validation = Validator::make($input, ['new_password' => 'required|min:6|confirmed']);
+
+		if ($validation->passes())
+		{
+			Auth::user()->setAuthPassword($input['new_password']);
+
+			
+			return Redirect::to('department/'.$depname.'/home');
+		}
+
+		return Redirect::to('/department/' . Auth::user()->department->name . '/user/'. Auth::user()->kimlik . '/editpass')->withErrors($validation);
 	}
 
 	public function Teachers()
@@ -15,17 +211,6 @@ class UserController extends BaseController
 
 		$this->layout->title = 'Teachers';
 		$this->layout->content = View::make('user.teachers')->with('faculties', $faculties);
-	}
-
-	public function User($id)
-	{
-		$user = User::find($id);
-
-		// if(count($user) == 0)
-		// 	return Redirect::to('/');
-
-		$this->layout->title = 'User profile';
-		$this->layout->content = View::make('user.user')->with('user', $user);
 	}
 
 	public function Mycourses($id)
@@ -52,4 +237,5 @@ class UserController extends BaseController
 	{
 		return Redirect::to('user/'.$id);
 	}
+
 }

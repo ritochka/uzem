@@ -14,7 +14,7 @@
 App::before(function($request)
 {
 	if(Cookie::get('lang')) App::setLocale(Cookie::get('lang'));
-	Session::put('redir_url', URL::previous());
+	Session::put('prevUrl', URL::previous());
 });
 
 

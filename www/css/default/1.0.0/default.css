@@ -103,51 +103,44 @@ body *
 
 @media (min-width: 768px){
 	
-	.red-menu .navbar-default
+	.blue-menu .navbar-default
 	{
-		border-color: #dc3338;
-		border-radius: 50px;
+		border-color:  1px solid #bbbff7;
 		border-top: 0;
 		border-left: 0;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-		border-top-right-radius: 0;
-		background: none;
-		box-shadow: 0 0 0;
+		background: #2B518B;
+		box-shadow: 0 1px 0 #2B518B;
 	}
 
-	.red-menu .navbar-brand
+	.blue-menu .navbar-brand
 	{
-		color: #2a6496;
+		color: #fff;
 	}
 
-	.red-menu .navbar-brand:hover
+	.blue-menu .navbar-brand:hover
 	{
 		color: #dc3338;
 	}
 
-	.red-menu .navbar-nav
+	.blue-menu .navbar-nav
 	{
 		padding: 0 30px;
-		border-top: 1px solid #dc3338;
-		border-top-left-radius: 50px;
-		border-bottom-right-radius: 50px;
-		background: rgba(255,255,255,0.5);
+		background: #2B518B;
 	}
 
-	.red-menu .navbar-default .navbar-nav a
+	.blue-menu .navbar-default .navbar-nav a
 	{
-		color: #2a6496;
+		color: #fff;
 		/*font-weight: bold;*/
 	}
 
-	.red-menu .navbar-default .navbar-nav a:hover
+	.blue-menu .navbar-default .navbar-nav a:hover
 	{
-		color: #dc3338;
+		color: #bbbff7;
 		/*font-weight: bold;*/
 	}
 
-	.red-menu .navbar-default .navbar-nav > .open > a
+	.blue-menu .navbar-default .navbar-nav > .open > a
 	{
 		background: none;
 		color: #dc3338;

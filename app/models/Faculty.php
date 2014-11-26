@@ -6,7 +6,10 @@ class Faculty extends Eloquent
 
 	public function __construct()
 	{
-		$this->table = 'faculties';
+		$this->connection = 'depconnection';
+		$this->table = 'faculty';
+		$this->timestamps = false;
+		
 	}
 
 	public function departments()
