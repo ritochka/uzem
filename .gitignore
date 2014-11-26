@@ -2,6 +2,8 @@
 /vendor
 /db
 app/config/server
+app/config/rita
+app/config/chingiz
 app/storage
 .ssh
 composer.phar
