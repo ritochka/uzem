@@ -73,7 +73,7 @@ return array(
 	'Departments'		         => 'Bölümler',
 	'KTMU - Address'			 => '720044 Tınçtık cd., 56, Bişkek, Kırgız Cumhuriyeti | +996 (312) 54 19 41-47 | online@manas.edu.kg',
 	'KTMU'						 => 'KIRGIZİSTAN TÜRKİYE MANAS ÜNİVERSİTESİ',
-	'KTMU2'						 => 'KIRGIZİSTAN TÜRKİYE <span class="logo-color">MANAS ÜNİVERSİTESİ</span>',
+	'KTMU2'						 => 'KIRGIZİSTAN TÜRKİYE <span class="logo-color"> <br/>MANAS ÜNİVERSİTESİ</span>',
 	'Contacts'				     => 'İletişim',
 	'Prospective Students'		 => 'Aday Öğrenci',
 	'Research'		             => 'Araştırma',

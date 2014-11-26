@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{{ $title }}}</title>
+	<title>MANAS Online {{{ $title }}}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" onerror="this.href='/css/bootstrap/3.1.1/css/bootstrap.min.css'">

@@ -63,7 +63,7 @@ return array(
 	'Departments'		         => 'Бөлүмдөр',
 	'KTMU - Address'			 => '720044 Тынчтык пр., 56, Бишкек, Кыргыз Республикасы | +996 (312) 54 19 41-47 | online@manas.edu.kg',
 	'KTMU'						 => 'КЫРГЫЗ ТҮРК МАНАС УНИВЕРСИТЕТИ',
-	'KTMU2'						 => 'КЫРГЫЗ ТҮРК <span class="logo-color">МАНАС УНИВЕРСИТЕТИ</span>',
+	'KTMU2'						 => 'КЫРГЫЗ ТҮРК <span class="logo-color"> <br/>МАНАС УНИВЕРСИТЕТИ</span>',
 	'Contacts'				     => 'Байланыш',
 	'Prospective Students'		 => 'Абитуриенттерге',
 	'Research'		             => 'Илимий изилдоолор',

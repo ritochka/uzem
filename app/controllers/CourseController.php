@@ -13,10 +13,10 @@ class CourseController extends BaseController
 	public function Courses()
 	{
 		// $courses = Course::all();
-		$faculties = Faculty::all();
+		$courses = Course::all();
 
 		$this->layout->title = 'Courses';
-		$this->layout->content = View::make('course.courses')->with('faculties', $faculties);
+		$this->layout->content = View::make('course.courses')->with('courses', $courses);
 	}
 
 	public function Course($code)

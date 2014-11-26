@@ -105,7 +105,7 @@ return array(
 	'Course description'		 => 'Course description',
 	'KTMU - Address'			 => '720044 Tynchtyk ave., 56, Bishkek, Kyrgyz Republic | +996 (312) 54 19 41-47 | online@manas.edu.kg',
 	'KTMU'						 => 'KYRGYZ TURKISH MANAS UNIVERSITY',
-	'KTMU2'						 => 'KYRGYZ TURKISH <span class="logo-color">MANAS UNIVERSITY</span>',
+	'KTMU2'						 => 'KYRGYZ TURKISH <span class="logo-color"> <br/>MANAS UNIVERSITY</span>',
 	'Week Schedule'				 => 'Week Schedule',
 	'Edit'                       => 'Edit',
 	'Email'                      => 'Email',
