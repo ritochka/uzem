@@ -1,5 +1,9 @@
 /bootstrap/compiled.php
 /vendor
+/db
+app/config/server
+app/storage
+.ssh
 composer.phar
 composer.lock
 .env.local.php

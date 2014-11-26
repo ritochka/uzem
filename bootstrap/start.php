@@ -28,6 +28,7 @@ $env = $app->detectEnvironment(array(
 
 	'cingiz' => array('django-PC'),
 	'rita'   => array('Juma-PC'),
+	'server' => array('websrv'),
 
 ));
 
