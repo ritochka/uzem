@@ -519,26 +519,7 @@ class DepartmentController extends BaseController
 		$this->layout->content = View::make('department.course')->with('course', $course);
 	}
 
-	public function Person($depname, $person)
-	{
-		$department = Department::where('name', '=', $depname)->firstOrFail();
-
-		View::share('department', $department);
-
-		if($person == 'all')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereNotIn('Gorev_Id', [89, 90])->orderBy('Ireet')->get();
-		elseif($person == 'instructor')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereIn('Gorev_Id', [3, 11, 47, 48, 49])->orderBy('Ireet')->get();
-		elseif($person == 'assistant')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereIn('Gorev_Id', [4])->orderBy('Ireet')->get();
-		elseif($person == 'staff')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereIn('Gorev_Id', [13, 22, 23, 36, 56, 57, 58, 71, 83])->orderBy('Ireet')->get();
-		else
-			return Redirect::action('DepartmentController@Home', [$depname]);
-		
-		$this->layout->title = trans('default.People');
-		$this->layout->content = View::make('department.people')->with('personnels', $personnels);
-	}
+	
 
 	public function ListPics($depname)
 	{

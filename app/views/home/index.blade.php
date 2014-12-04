@@ -37,7 +37,7 @@
 			<ul class="dep-news-list">
 				@foreach($courses as $course)
 				<li> 
-					<a href="/course/{{{ $course->code }}}"> {{{ str_limit($course->name, 45)  }}} </a>
+					<a href="/course/{{{ $course->code }}}"> {{{ $course->code }}} - {{{ str_limit($course->name, 45)  }}} </a>
 				</li>
 				@endforeach
 			</ul>

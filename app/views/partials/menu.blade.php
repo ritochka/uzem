@@ -13,7 +13,7 @@
 			<ul class="nav navbar-nav">
 				@foreach($menus as $menu)
 				<li class="dropdown">
-					<a href="/{{{ $menu->type }}}/{{{ $menu->name }}}" @if($menu->isActive(urldecode(Request::segment(2)))) style="font-weight: bolder; color: #bbbff7;" @endif>{{{ $menu->getName() }}}</a>
+					<a href="/{{{ $menu->type }}}/{{{ $menu->name }}}" @if($menu->isActive(urldecode(Request::segment(2)))) style="font-weight: bolder; color: #82B6E4;" @endif>{{{ $menu->getName() }}}</a>
 				</li>
 				@endforeach
 				</ul>

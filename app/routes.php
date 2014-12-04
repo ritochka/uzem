@@ -21,7 +21,7 @@ Route::post('logout', 'AdminController@pLogout');*/
 
 // user routes----------------------------------------
 //Route::get('teachers'	   , 'UserController@Teachers');
-Route::get ('teachers/{person}', ['as' => 'department-person', 'uses' => 'DepartmentController@Person']);
+Route::get ('people/{person}', ['as' => 'department-person', 'uses' => 'UserController@PersonAll']);
 Route::get('user/{id}'     , 'UserController@User');
 Route::get('user/{id}/edit', 'UserController@Edit');
 Route::put('user/{id}/edit', 'UserController@putEdit');
