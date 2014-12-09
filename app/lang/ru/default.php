@@ -114,5 +114,6 @@ return array(
 	'Background'                 => 'Резюме',
 	'Works'                      => 'Научные работы',
 	'New Courses'				 => 'Новые Курсы',
+	'Enroll in class'			 => 'Зарегистрироваться на Курс',
 
 );
