@@ -1,12 +1,7 @@
 @section('content')
 
-@foreach($faculties as $faculty)
-<div> 
-	<p style="font-weight:bold">{{{ $faculty->name }}}</p>
-	@foreach($faculty->departments as $department) 
-	<div style="margin-left:20px">
-		<p style="font-weight:bold">{{{ $department->name }}}</p>
-		@foreach($department->personnels as $personnel)
+
+		@foreach($personnels as $personnel)
 		<ul class="deppeople">
 		<li>
 			<a href="#" >
@@ -18,11 +13,6 @@
 		</li>
 	</ul>
 	@endforeach
-	</div>
-	<hr>
-	@endforeach
-	<hr>
-</div>
-@endforeach
+	
 
 @stop

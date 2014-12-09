@@ -21,7 +21,7 @@ Route::post('logout', 'AdminController@pLogout');*/
 
 // user routes----------------------------------------
 //Route::get('teachers'	   , 'UserController@Teachers');
-Route::get ('people/{person}', ['as' => 'department-person', 'uses' => 'UserController@PersonAll']);
+Route::get('people/{person}', ['as' => 'department-person', 'uses' => 'UserController@PersonAll']);
 Route::get('user/{id}'     , 'UserController@User');
 Route::get('user/{id}/edit', 'UserController@Edit');
 Route::put('user/{id}/edit', 'UserController@putEdit');
@@ -30,7 +30,7 @@ Route::get('mycourses/{id}', 'UserController@Mycourses');
 
 // course routes--------------------------------------
 Route::get('course/courses', 'CourseController@Courses');
-Route::get('course/{code}', 'CourseController@Course');
+Route::get('course/courses/{code}', 'CourseController@Course');
 Route::get('agreement/{code}', 'CourseController@Agreement');
 Route::get('inclass/{code}/agreementreminder', 'CourseController@Agreementreminder');
 Route::get('inclass/{code}', 'CourseController@Inclass');

@@ -16,7 +16,7 @@ class Teacher extends Eloquent {
 
 	public function user()
 	{
-		return $this->hasOne('User', 'id');
+		return $this->hasOne('Personel', 'id');
 	}
 
 	public function affiliation()

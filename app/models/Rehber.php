@@ -61,7 +61,7 @@ class Rehber extends Eloquent
 		return $this->Surname;
 	}
 
-	public function courses()
+	public function courses_dbp()
 	{
 		try
 		{
@@ -74,6 +74,11 @@ class Rehber extends Eloquent
 			return null;	
 		}
 		
+	}
+
+	public function courses()
+	{
+		return $this->belongsToMany('Course', 'instr_course', 'instr_id', 'course_id');
 	}
 
 }

@@ -14,7 +14,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function __construct()
 	{
-		$this->table = 'users';
+		$this->connection = 'depconnection';
+		$this->table = 'user';
 	}
 
 	/**
@@ -49,11 +50,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @return string
 	 */
-	public function getReminderEmail()
-	{
-		return $this->email;
-	}
-
+	
 	public function courses()
 	{
 		return $this->belongsToMany('Course', 'instr_course', 'instr_id', 'course_id');
@@ -105,6 +102,84 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		
 
+	}
+
+
+	/**
+	 * Get the password for the user.
+	 *
+	 * @return string
+	 */
+	
+	public function setAuthPassword($pass)
+	{
+		$this->password = Hash::make($pass);
+		$this->password_alt = md5($pass);
+		$this->save();
+	}
+
+	public function setEmail($email)
+	{
+		$this->email = $email;
+		$this->save();
+	}
+
+	/**
+	 * Get the e-mail address where password reminders are sent.
+	 *
+	 * @return string
+	 */
+	public function getReminderEmail()
+	{
+		return $this->email;
+	}
+
+	public function getRememberToken()
+	{
+		return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+		$this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+		return 'remember_token';
+	}
+	public function getEducation()
+	{
+		if(trim($this['education_'.App::getLocale()]) != "")
+			return $this['education_'.App::getLocale()];
+
+		if(trim($this['education_tr']) != "")
+			return $this['education_tr'];
+
+		if(trim($this['education_kg']) != "")
+			return $this['education_kg'];
+	
+		if(trim($this['education_ru']) != "")
+			return $this['education_ru'];
+
+		return $this['education_en'];
+	
+	}
+	public function getPublication()
+	{
+		if(trim($this['publication_'.App::getLocale()]) != "")
+			return $this['publication_'.App::getLocale()];
+
+		if(trim($this['publication_tr']) != "")
+			return $this['publication_tr'];
+
+		if(trim($this['publication_kg']) != "")
+			return $this['publication_kg'];
+	
+		if(trim($this['publication_ru']) != "")
+			return $this['publication_ru'];
+
+		return $this['publication_en'];
 	}
 	
 }

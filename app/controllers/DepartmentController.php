@@ -8,7 +8,7 @@ class DepartmentController extends BaseController
 	{
 		$this->layout = 'layouts.department';
 
-		if(Menu::countChild(urldecode(Request::segment(2))) == 0)
+		if(Menu::countChild(urldecode(Request::segment(3))) == 0)
 			$this->layout = 'department.layouts.full';
 
 		$this->beforeFilter('csrf', ['on' => ['post', 'put', 'delete']]);

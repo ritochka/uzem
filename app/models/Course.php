@@ -16,7 +16,11 @@ class Course extends Eloquent
 
 	public function instructors()
 	{
-		return $this->belongsToMany('User', 'instr_course', 'course_id', 'instr_id');
+		//return $this->hasMany('Course', 'instr_course', 'course_id', 'instr_id');
+		$ids = DB::table('instr_course')->where('course_id', '=', $this->id)->lists('instr_id');
+		$ins = Rehber::whereIn('Kimlik', $ids)->get();
+		// echo $ins; die;
+		return $ins;
 	}
 
 	public function awrittens()

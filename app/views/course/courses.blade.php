@@ -4,7 +4,7 @@
 		<div class="panel-body">
 			@foreach($courses as $course) 
 				<div style="margin-left:20px">
-					<a href="/course/{{{ $course->code }}}"> 
+					<a href="/course/courses/{{{ $course->code }}}"> 
 						{{{ $course->code }}} : {{{ $course->name }}}
 					</a>
 				</div>

@@ -1,85 +1,64 @@
 @section('content')
 
-<div> 
-	{{{ $user->firstname }}} {{{ $user->lastname }}} <!-- <a href="/user/{{{ $user->id }}}/edit">edit</a> --> 
-</div>
-<hr>
-<div>
-	@foreach($user->roles as $role)
-	<div>
-		{{{ $role->name }}}
+<div class="row tooltip-div depcontent">
+	<div class="col-sm-2 hidden-xs" style="margin-bottom:10px;">
+		<img class="img-thumbnail img-responsive avatar" src="http://manas.edu.kg/erehber/data/personel_img/{{{ $user->Kimlik }}}.jpg" onerror="this.src='/img/noimg.png'">
 	</div>
-	@endforeach
-</div>
-<hr>
-<div>
-	@if(Auth::user()->hasRoles(['teacher']))
-	<p>true</p>
-	@else
-	<p>false</p>
-	@endif
-</div>
 
-<table class="table table-primary">
-	<tr>
-		<th>
-			{{{ trans('default.Affiliation')}}}
-		</th>
-		<th>
-			{{{ $user->teacher->affiliation->institution}}}
-		</th>
-	</tr>
-	<tr>
-		<th>
-			{{{ trans('default.Office')}}}
-		</th>
-		<th>
-			{{{ $user->teacher->office}}}
-		</th>
-	</tr>
-	<tr>
-		<th>
-			{{{ trans('default.email')}}}
-		</th>
-		<th>
-			{{{ $user->email}}}
-		</th>
-	</tr>
-	<tr>
-		<th>
-			{{{ trans('default.Area of Interests')}}}
-		</th>
-		<th>
-			@foreach($user->interestareas as $area)
-			{{{ $area->area}}}<br/>
-			@endforeach
-		</th>
-	</tr>
-	<tr>
-		<th>
-			{{{ trans('default.Education')}}}
-		</th>
-		<th>
-			@foreach($user->educations as $education)
-			{{{ $education->edtype->degree}}}: 
-			{{{ $education->studied->institution}}},
-			{{{ trans('default.Department of')}}}
-			{{{ $education->department}}},
-			{{{ $education->graduated}}} <br/>
-			@endforeach
-		</th>
-	</tr>
-</table>
-{{{trans('default.Courses')}}}: <br/>
-@foreach ($user->courses as $course)
-<a href="/course/{{{ $course->code }}}"> 
-	{{{ $course->code }}} {{{ $course->name }}} 
-</a> <br/>
-@endforeach
-{{{trans('default.Publications')}}}:	<br/>
-@foreach ($user->publications as $publication)
-{{{ $publication->title }}}<br/>
-@endforeach
+	<div class="col-sm-10 col-xs-12">		
+		<table class="table">
+			<tr>
+				<td style="width:200px">{{{ trans('default.Firstname') }}}</td>
+				<td>{{{ $user->getFullname() }}}</td>
+			</tr>
+			
+			<tr>
+				<td>{{ trans('default.Email') }}</td>
+				<td>{{{ $user->Eposta }}}</td>
+			</tr>
+			<tr>
+				<td>{{ trans('default.Office') }}</td>
+				<td>{{{ $user->OdaN }}}</td>
+			</tr>
+			<tr>
+				<td>{{ trans('default.Phone') }}</td>
+				<td>{{{ $user->Tel }}} ({{{ $user->Dahili }}})</td>
+			</tr>
+			<tr>
+				<td>{{{ trans('default.Courses') }}}</td>
+				<td>
+					@if(count($courses) > 0)
+					@foreach ($courses as $course)
+					<p><a href="/dbp/{{{ $course->id }}}" target="_blank">{{{ $course->derskod }}} : {{{ $course->getName() }}}</a></p>
+					@endforeach
+					@endif
+				</td>
+			</tr>
+			
+		</table>
+		
+		@if(Auth::check() && Auth::user()->kimlik == Route::input('kimlik'))
+		<a href="/department/{{{ $department->name }}}/user/{{{ $user->Kimlik }}}/edit" class="btn btn-danger" style="top: 2px; position: absolute; right: 15px;">{{{ trans('default.Edit') }}}</a>
+		@endif
 
+	</div> <!-- col-sm8 end -->
 
+	<div class="col-sm-12">
+		<h4 style="border-bottom: 1px solid #ddd">{{ trans('default.Background') }}</h4>
+		<div>{{ $user2->getEducation() }}</div>
+	</div>
+
+	<div class="col-sm-12" style="margin-top:20px;">
+		<h4 style="border-bottom: 1px solid #ddd">{{{ trans('default.Works') }}}</h4>
+		<div>{{ $user2->getPublication() }}</div>
+	</div> 
+
+</div> <!-- row end -->
 @stop
+
+@section('style')
+<style type="text/css">
+	.avatar {width: 100%;}
+</style>
+@stop
+

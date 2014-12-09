@@ -88,7 +88,7 @@ class Menu extends Eloquent
 
 	public function getUrls()
 	{
-		return $this->section.'/'. $this->page->department->name .'/'. $this->type .'/'.$this->name;
+		return $this->section.'/'. $this->type .'/'.$this->name;
 	}
 
 }

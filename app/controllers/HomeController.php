@@ -7,8 +7,9 @@ class HomeController extends BaseController
 	{
 		$this->layout = 'layouts.default';
 
-		//if(Menu::countChild(urldecode(Request::segment(2))) == 0)
-		//	$this->layout = 'layouts.default';
+		if(Menu::countChild(urldecode(Request::segment(2))) == 0)
+			$this->layout = 'layouts.home';
+		
 
 		$this->beforeFilter('csrf', ['on' => ['post', 'put', 'delete']]);
 		$this->beforeFilter('auth', ['on' => 'post']);
@@ -32,12 +33,14 @@ class HomeController extends BaseController
 		 $courses = Course::all();
 		 $news = News::all();
 		 
+		 $this->layout = View::make('layouts.home');
 		 $this->layout->title = 'Home';
 		 $this->layout->content = View::make('home.index', compact('courses', 'news'));
 	}
 
 	public function Page($pagename)
-	{
+	{	
+		//$this->layout = 'layouts.default';
 		
 		try
 		{

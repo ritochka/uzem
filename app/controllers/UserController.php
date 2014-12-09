@@ -19,13 +19,13 @@ class UserController extends BaseController
 		
 	}
 
-	public function User($kimlik)
+	/*public function User($kimlik)
 	{
-		$user = User::where('kimlik', '=', $kimlik)->firstOrFail();
+		$user = Rehber::where('kimlik', '=', $kimlik)->firstOrFail();
 
 		$this->layout->title = $user->firstname . ' ' . $user->lastname;
 		$this->layout->content = View::make('user.user')->with('user', $user);
-	}
+	}*/
 
 	public function Person($depname, $person)
 	{
@@ -35,13 +35,13 @@ class UserController extends BaseController
 		View::share('faculty', $faculty);
 
 		if($person == 'all')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereNotIn('Gorev_Id', [89, 90])->orderBy('Ireet')->get();
+			$personnels = Rehber::where('Hidden', '=', 0)->whereNotIn('Gorev_Id', [89, 90])->orderBy('Ireet')->get();
 		elseif($person == 'instructor')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereIn('Gorev_Id', [3, 11, 47, 48, 49])->orderBy('Ireet')->get();
+			$personnels = Rehber::where('Hidden', '=', 0)->whereIn('Gorev_Id', [3, 11, 47, 48, 49])->orderBy('Ireet')->get();
 		elseif($person == 'assistant')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereIn('Gorev_Id', [4])->orderBy('Ireet')->get();
+			$personnels = Rehber::where('Hidden', '=', 0)->whereIn('Gorev_Id', [4])->orderBy('Ireet')->get();
 		elseif($person == 'staff')
-			$personnels = Rehber::where('SubType_Id', '=', $department->personeldb_id)->where('Hidden', '=', 0)->whereIn('Gorev_Id', [13, 22, 23, 36, 56, 57, 58, 71, 83])->orderBy('Ireet')->get();
+			$personnels = Rehber::where('Hidden', '=', 0)->whereIn('Gorev_Id', [13, 22, 23, 36, 56, 57, 58, 71, 83])->orderBy('Ireet')->get();
 		else
 			return Redirect::action('DepartmentController@Home', [$depname]);
 		
@@ -56,7 +56,7 @@ class UserController extends BaseController
 		$departments = Department::all();
 
 		if($person == 'all')
-			$personnels = Rehber::where('Hidden', '=', 0)->whereNotIn('Gorev_Id', [89, 90])->orderBy('Ireet')->get();
+			$personnels = Rehber::where('SubType_Id', '=', 27)->where('Hidden', '=', 0)->whereNotIn('Gorev_Id', [89, 90])->orderBy('Ireet')->get();
 		elseif($person == 'instructor')
 			$personnels = Rehber::where('Hidden', '=', 0)->whereIn('Gorev_Id', [3, 11, 47, 48, 49])->orderBy('Ireet')->get();
 		elseif($person == 'assistant')
@@ -83,11 +83,11 @@ class UserController extends BaseController
 		$this->layout->content = View::make('user.user')->with('user', $user);
 	}
 	*/
-	public function DepartmentUser($depname, $kimlik)
+	public function User($kimlik)
 	{
-		$department = Department::where('name', '=', $depname)->firstOrFail();
+		/*$department = Department::where('name', '=', $depname)->firstOrFail();
 		
-		View::share('department', $department);
+		View::share('department', $department);*/
 
 		try
 		{
@@ -96,12 +96,12 @@ class UserController extends BaseController
 		}
 		catch (Exception $e)
 		{
-			return Redirect::to('/department/' . $depname . '/home');
+			return Redirect::to('/');
 		}
 
-		$this->layout = View::make('department.layouts.full');
+		$this->layout = View::make('layouts.home');
 		$this->layout->title = $user->Name . ' ' . $user->Surname;
-		$this->layout->content = View::make('user.personel')->with('user', $user)->with('user2', $user2)->with('courses', $user->courses());
+		$this->layout->content = View::make('user.user')->with('user', $user)->with('user2', $user2)->with('courses', $user->courses());
 	}
 
 	public function EditDepartmentUser($depname, $kimlik)

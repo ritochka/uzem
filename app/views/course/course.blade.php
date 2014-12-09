@@ -17,9 +17,9 @@
 						{{{trans('default.Instructor')}}}  
 					</th>
 					<th>
-						@foreach ($course->instructors as $instructor)
-							<a href="/user/{{{ $instructor->id }}}" >
-								{{{ $instructor->firstname }}} {{{ $instructor->lastname }}}
+						@foreach ($course->instructors() as $instructor)
+							<a href="/user/{{{ $instructor->Kimlik }}}" >
+								{{{ $instructor->getFullName() }}} 
 							</a><br/> 
 						@endforeach						
 					</th>

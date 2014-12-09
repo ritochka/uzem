@@ -8,7 +8,7 @@ class MenuRepository
 {
 	public function getMenus()
 	{
-		return Menu::where('section', '=', 'department')->where('parent_id', '=', 0)->orderBy('order')->get();
+		return Menu::where('parent_id', '=', 0)->orderBy('order')->get();
 	}
 
 	public function getChildMenus()
