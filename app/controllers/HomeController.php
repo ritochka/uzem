@@ -57,5 +57,14 @@ class HomeController extends BaseController
 		$this->layout->content = View::make('home.page')->with('page', $page);
 	}
 
+	public function ListDeps()
+	{
+		$faculties = Faculty::where('active', '=', 1)->orderBy('order')->get();
+
+		$this->layout = View::make('layouts.default');
+		$this->layout->title = 'Departments';
+		$this->layout->content = View::make('department.listdeps')->with('faculties', $faculties);
+	}
+
 
 }

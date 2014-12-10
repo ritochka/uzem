@@ -43,6 +43,10 @@ Route::get('inclass/{code}/reading', 'CourseController@Reading'); // areading = 
 //----------------------------------------------------
 
 // course routes--------------------------------------
+Route::get('/academic/academic', 'HomeController@ListDeps');
+//----------------------------------------------------
+
+// course routes--------------------------------------
 	Route::get ('page/{page}', 		 'HomeController@Page');
 	// Route::get ('page/{page}/edit',   'HomeController@EditPage');
 	// Route::post('page/{page}/edit',   'HomeController@UpdatePage');
