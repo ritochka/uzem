@@ -18,7 +18,7 @@
 					</th>
 					<th>
 						@foreach ($course->instructors() as $instructor)
-							<a href="/user/{{{ $instructor->Kimlik }}}" >
+							<a href="/user/{{{ $instructor->Kimlik }}}/profile" >
 								{{{ $instructor->getFullName() }}} 
 							</a><br/> 
 						@endforeach						

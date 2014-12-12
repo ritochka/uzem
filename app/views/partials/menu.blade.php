@@ -21,22 +21,30 @@
 				@if(Auth::check())
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> {{{ Auth::user()->kimlik }}}</a>
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="dropdown-menu">
 						@if(Auth::check() && Auth::user()->id < 100000)
-						<li><a href="/user/{{{ Auth::user()->kimlik }}}/profile"><span class="glyphicon glyphicon-user"></span> &nbsp; {{{ trans('default.Profile') }}}</a></li>
+						<li><a href="/user/{{{ Auth::user()->kimlik }}}/profile" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-user"></span> &nbsp; {{{ trans('default.Profile') }}}</a></li>
 						@endif
 						@if(Auth::check())
-						<li><a href="/user/{{{ Auth::user()->kimlik }}}/editpass"><span class="glyphicon glyphicon-cog"></span> &nbsp; {{{ trans('default.Settings') }}}</a></li>
+						<li><a href="/user/{{{ Auth::user()->kimlik }}}/editpass" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-cog"></span> &nbsp; {{{ trans('default.Settings') }}}</a></li>
 						@endif
-						<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> &nbsp; {{{ trans('default.Message') }}} <span class="badge">0</span></a></li>
+						<li><a href="#" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-envelope"></span> &nbsp; {{{ trans('default.Message') }}} <span class="badge">0</span></a></li>
+						@if(Auth::check() && User::hasRoles(['admin', 'secretary']) && Auth::user()->department_id == $department->personeldb_id)
+						<li class="divider"></li>
+						<li><a href="/news/create" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-pencil"></span> &nbsp; {{{ trans('default.Create news') }}} </a></li>
+						@endif
+						@if(Auth::check() && User::hasRoles(['admin', 'secretary']) && Auth::user()->department_id == $department->personeldb_id)
+						<li><a href="/picture/list"  style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-picture"></span> &nbsp; {{{ trans('default.Pictures') }}}</a></li>
+						<li><a href="/file/list"  style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-folder-open"></span> &nbsp; {{{ trans('default.Files') }}}</a></li>
+						@endif
 						@if(Auth::check() && User::hasRoles(['admin']))
 						<li class="divider"></li>
-						<li><a href="/admin"><span class="glyphicon glyphicon-cloud"></span> &nbsp; ADMIN</a></li>
+						<li><a href="/admin"><span class="glyphicon glyphicon-cloud" style="font-style: italic; color: #2b5290;"></span> &nbsp; ADMIN</a></li>
 						@endif
 						<li class="divider"></li>
-						<li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span> &nbsp; {{{ trans('default.Logout') }}}</a></li>
+						<li><a href="javascript:document.getElementById('logoutForm').submit()" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-off"></span> &nbsp; {{{ trans('default.Logout') }}}</a></li>
 						
-					</ul>					
+					</ul>				
 				</li>
 				
 				@else

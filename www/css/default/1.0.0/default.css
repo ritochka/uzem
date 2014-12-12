@@ -141,10 +141,22 @@ body *
 		/*font-weight: bold;*/
 	}
 
+	.blue-menu .navbar-default-dropdown .navbar-nav a
+	{
+		color: #2b5290;
+		/*font-weight: bold;*/
+	}
+
+	.blue-menu .navbar-default-dropdown .navbar-nav a:hover
+	{
+		color: #bbbff7;
+		/*font-weight: bold;*/
+	}
+
 	.blue-menu .navbar-default .navbar-nav > .open > a
 	{
 		background: none;
-		color: #dc3338;
+		color: #bbbff7;
 	}
 
 }

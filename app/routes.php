@@ -13,18 +13,27 @@ Route::get('lang/{lang}', function($lang)
 Route::get('/', 'HomeController@Index');
 //Route::get('lang/{lang}',    'DepartmentController@Lang');
 
-// admin routes---------------------------------------
-/*Route::get ('login' , 'AdminController@Login');
-Route::post('login' , 'AdminController@pLogin');
-Route::post('logout', 'AdminController@pLogout');*/
-//----------------------------------------------------
+/// admin routes------------------------------------------------------------------------------------
+Route::get ('login' ,   'AdminController@Login');
+Route::post('login' ,   'AdminController@postLogin');
+Route::post('logout',   'AdminController@postLogout');
+Route::get ('reminder', 'AdminController@Reminder');
+Route::post('reminder', 'AdminController@postReminder');
+Route::get ('reset/{kimlik}/{reminder_token}', 'AdminController@Reset');
+//-------------------------------------------------------------------------------------------------
 
 // user routes----------------------------------------
 //Route::get('teachers'	   , 'UserController@Teachers');
-Route::get('people/{person}', ['as' => 'department-person', 'uses' => 'UserController@PersonAll']);
-Route::get('user/{id}'     , 'UserController@User');
-Route::get('user/{id}/edit', 'UserController@Edit');
-Route::put('user/{id}/edit', 'UserController@putEdit');
+Route::get ('people/{person}',  ['as' => 'department-person', 'uses' => 'UserController@PersonAll']);
+Route::get ('user/{id}/profile', 'UserController@User');
+Route::get ('user/{id}/edit', 	 'UserController@EditUser');
+Route::post('user/{id}/edit', 	 'UserController@UpdateUser');
+Route::get ('user/{id}/picture', 'UserController@UserPicture');
+Route::post('user/{id}/picture', 'UserController@UpdateUserPicture');
+	
+Route::get ('user/{id}/editpass', 'UserController@PasswordChange');
+Route::post('user/{id}/editpass', 'UserController@PostPasswordChange');
+
 Route::get('mycourses/{id}', 'UserController@Mycourses');
 //----------------------------------------------------
 

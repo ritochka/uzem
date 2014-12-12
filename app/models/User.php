@@ -53,7 +53,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	public function courses()
 	{
-		return $this->belongsToMany('Course', 'instr_course', 'instr_id', 'course_id');
+		//return $this->belongsToMany('Course', 'instr_course', 'instr_id', 'course_id');
+		$c_ids = DB::table('instr_course')->where('course_id', '=', $this->id)->lists('instr_id');
+		$ins = Rehber::whereIn('Kimlik', $ids)->get();
+		// echo $ins; die;
+		return $ins;
 	}
 
 	public function mycoursesnumber()
@@ -68,7 +72,27 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function roles()
 	{
-		return $this->belongsToMany('Role', 'user_roles');
+		return $this->belongsToMany('Role', 'user_roles', 'user_id', 'role_id');
+	}
+
+	public function department()
+	{
+		return $this->belongsTo('Department', 'department_id', 'personeldb_id');
+	}
+
+	public static function hasRoles($roles)
+	{
+		if(Auth::check())
+		{
+			foreach ($roles as $role)
+			{
+				if(in_array($role, array_fetch(Auth::user()->roles->toArray(), 'name')))
+					return true;
+			}
+		}
+		
+		return false;
+
 	}
 
 	public function interestareas()
@@ -86,18 +110,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('StaffEducation', 'user_id');
 	}
 
-	public function hasRoles($roles)
-	{
-		if(Auth::check())
-		foreach ($roles as $role)
-		{
-			if(in_array($role, array_fetch($this->roles->toArray(), 'name')))
-				return 1;
-		}
-
-		return 0;
-	}
-
+	
 	public function enroll()
 	{
 		
