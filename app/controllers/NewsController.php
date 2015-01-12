@@ -46,7 +46,7 @@ class NewsController extends BaseController
 		
 		try
 		{
-			$infos = Info::where('type', '=', [1, 2])->orderBy('updated_at', 'DESC')->paginate(50);
+			$infos = Info::orderBy('updated_at', 'DESC')->paginate(50);
 		}
 		catch(ModelNotFoundException $e)
 		{
