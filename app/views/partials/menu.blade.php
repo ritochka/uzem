@@ -16,14 +16,15 @@
 					<a href="/{{{ $menu->type }}}/{{{ $menu->name }}}" @if($menu->isActive(urldecode(Request::segment(2)))) style="font-weight: bolder; color: #82B6E4;" @endif>{{{ $menu->getName() }}}</a>
 				</li>
 				@endforeach
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
 				@if(Auth::check())
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> {{{ Auth::user()->kimlik }}}</a>
 					<ul class="dropdown-menu">
 						@if(Auth::check() && Auth::user()->id < 100000)
-						<li><a href="/user/{{{ Auth::user()->kimlik }}}/profile" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-user"></span> &nbsp; {{{ trans('default.Profile') }}}</a></li>
+						<li>
+						<a href="/user/{{{ Auth::user()->kimlik }}}/profile" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-user"></span> &nbsp; {{{ trans('default.Profile') }}}</a></li>
 						@endif
 						@if(Auth::check())
 						<li><a href="/user/{{{ Auth::user()->kimlik }}}/editpass" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-cog"></span> &nbsp; {{{ trans('default.Settings') }}}</a></li>

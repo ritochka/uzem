@@ -129,4 +129,5 @@ return array(
 	'Background'                 => 'Резюме',
 	'Works'                      => 'Илимий иштери',
 	'New Courses'				 => 'Жаңы Кошулган Сабактар',
+	'back to news'				 => 'Жаңылыктар Тизмесин Ач',
 );

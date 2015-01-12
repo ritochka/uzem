@@ -26,5 +26,7 @@ class Role extends Eloquent {
 	{
 		return $this[App::getLocale()];
 	}
+
+	
 	
 }

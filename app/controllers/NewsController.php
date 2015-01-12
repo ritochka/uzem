@@ -80,19 +80,17 @@ class NewsController extends BaseController
 	public function EditNews($id)
 	{
 				
-		if(Auth::check())
+		if(!Auth::check())
 		{
 			return Redirect::to('login');
 		}
-
-		
 
 		try
 		{
 			$info = Info::where('id', '=', $id)->firstOrFail();
 			// var_dump($info->title); die;
 
-			$this->layout = View::make('department.layouts.full');
+			$this->layout = View::make('layouts.home');
 			$this->layout->title = 'Edit '.$info->id.' news';
 			$this->layout->content = View::make('news.editnews')->with('info', $info);
 		}
@@ -107,7 +105,7 @@ class NewsController extends BaseController
 	{
 		
 
-		if(Auth::check())
+		if(!Auth::check())
 		{
 			return Redirect::to('login');
 		}
@@ -129,7 +127,7 @@ class NewsController extends BaseController
 		{
 			$info['title_'.App::getLocale()] = $input['title'];
 			$info[App::getLocale()] = $input['content'];
-			$info->type = $input['type'];
+			//$info->type = $input['type'];
 			$info->save();
 			
 			return Redirect::to('/news/'.$id);
@@ -143,7 +141,7 @@ class NewsController extends BaseController
 	{
 		
 
-		if(Auth::check())
+		if(!Auth::check())
 		{
 			return Redirect::to('login');
 		}
@@ -173,14 +171,14 @@ class NewsController extends BaseController
 	{
 		
 		
-		if(Auth::check())
+		if(!Auth::check())
 		{
 			return Redirect::to('login');
 		}
 
 	
 
-		$this->layout = View::make('department.layouts.full');
+		$this->layout = View::make('layouts.home');
 		$this->layout->title = 'Create news';
 		$this->layout->content = View::make('news.createnews');
 	}
@@ -189,7 +187,7 @@ class NewsController extends BaseController
 	{
 	
 
-		if(Auth::check())
+		if(!Auth::check())
 		{
 			return Redirect::to('login');
 		}
@@ -206,10 +204,10 @@ class NewsController extends BaseController
 		
 			$info['title_'.App::getLocale()] = $input['title'];
 			$info[App::getLocale()] = $input['content'];
-			$info->type = $input['type'];
+			//$info->type = $input['type'];
 			$info->save();
 			
-			return Redirect::to('/home');
+			return Redirect::to('/');
 		}
 
 		return Redirect::to('/news/create')->withInput()->withErrors($validation);

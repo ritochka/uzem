@@ -2,11 +2,12 @@
 <div class="depcontent">
 	
 	<div style="margin-top:5px;">
-		<a href="/news" class="btn btn-danger btn-sm">{{{ trans('default.back')}}}</a>
-
+		<a href="/news">{{{ trans('default.back to news')}}}</a>
+		<hr>
 	@if(Auth::check() && User::hasRoles(['admin', 'secretary']))
-		| <a href="/news/{{{ $info->id }}}/edit" class="btn btn-danger btn-sm">{{{ trans('default.edit')}}}</a>
-		| <a href="javascript:void" class="btn btn-danger btn-sm" id="deleteNews" txt="{{{ trans('default.Are you sure?') }}}">{{{ trans('default.delete')}}}</a>
+		<a href="/news" class="btn btn-default btn-sm">{{{ trans('default.back')}}}</a>
+		| <a href="/news/{{{ $info->id }}}/edit" class="btn btn-default btn-sm">{{{ trans('default.edit')}}}</a>
+		| <a href="javascript:void" class="btn btn-default btn-sm" id="deleteNews" txt="{{{ trans('default.Are you sure?') }}}">{{{ trans('default.delete')}}}</a>
 	@endif
 
 	<hr>

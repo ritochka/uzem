@@ -160,6 +160,7 @@ return array(
 	'Background'                 => 'Background',
 	'Works'                      => 'Annex',
 	'New Courses'				 => 'New Courses',
+	'back to news'				 => 'Back to News List',
 
 
 );

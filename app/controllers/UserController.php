@@ -27,6 +27,7 @@ class UserController extends BaseController
 		$this->layout->content = View::make('user.user')->with('user', $user);
 	}*/
 
+	
 	public function Person($depname, $person)
 	{
 		$department = Department::where('name', '=', $depname)->firstOrFail();
