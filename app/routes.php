@@ -69,10 +69,21 @@ Route::get('faculties', 'FacultyController@Faculties');
 Route::get('faculty/{name}', 'FacultyController@Faculty');
 //----------------------------------------------------
 
-// faculty routes--------------------------------------
+// dep routes--------------------------------------
 Route::get('departments', 'DepartmentController@Departments');
 Route::get('department/{name}', 'DepartmentController@Department');
 
 Route::get('departments', 'DepartmentController@ListDeps');
 Route::get('department', 'DepartmentController@ListDeps');
+//----------------------------------------------------
+
+// news routes--------------------------------------
+Route::get('/news',              'NewsController@AllNews');
+Route::get('/news/create',       'NewsController@NewNews');
+Route::post('/news/create',      'NewsController@CreateNews');
+Route::get('/news/{id}',         'NewsController@Info');
+Route::get('/news/{id}',         'NewsController@News');
+Route::get('/news/{id}/edit',    'NewsController@EditNews');
+Route::post('/news/{id}/edit',   'NewsController@UpdateNews');
+Route::post('/news/{id}/delete', 'NewsController@DeleteNews');
 //----------------------------------------------------

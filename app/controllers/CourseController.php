@@ -29,7 +29,7 @@ class CourseController extends BaseController
 
 	public function Agreement($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();

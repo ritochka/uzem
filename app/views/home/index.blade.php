@@ -24,7 +24,7 @@
 			<ul class="dep-news-list">
 				@foreach($news as $new)
 				<li> 
-					<a href="#"> {{{ str_limit($new->getName(), 45) }}} </a>
+					<a href="/news/{{{ $new->id }}}"> {{{ str_limit($new->getTitle(), 45) }}} </a>
 				</li>
 				@endforeach
 			</ul>

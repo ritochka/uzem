@@ -29,11 +29,11 @@
 						<li><a href="/user/{{{ Auth::user()->kimlik }}}/editpass" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-cog"></span> &nbsp; {{{ trans('default.Settings') }}}</a></li>
 						@endif
 						<li><a href="#" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-envelope"></span> &nbsp; {{{ trans('default.Message') }}} <span class="badge">0</span></a></li>
-						@if(Auth::check() && User::hasRoles(['admin', 'secretary']) && Auth::user()->department_id == $department->personeldb_id)
+						@if(Auth::check() && User::hasRoles(['admin', 'instructor']))
 						<li class="divider"></li>
 						<li><a href="/news/create" style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-pencil"></span> &nbsp; {{{ trans('default.Create news') }}} </a></li>
 						@endif
-						@if(Auth::check() && User::hasRoles(['admin', 'secretary']) && Auth::user()->department_id == $department->personeldb_id)
+						@if(Auth::check() && User::hasRoles(['admin', 'secretary']))
 						<li><a href="/picture/list"  style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-picture"></span> &nbsp; {{{ trans('default.Pictures') }}}</a></li>
 						<li><a href="/file/list"  style="font-style: italic; color: #2b5290;"><span class="glyphicon glyphicon-folder-open"></span> &nbsp; {{{ trans('default.Files') }}}</a></li>
 						@endif
