@@ -46,7 +46,7 @@ class NewsController extends BaseController
 		
 		try
 		{
-			$infos = Info::where('type', '=', 1)->orderBy('updated_at', 'DESC')->paginate(50);
+			$infos = Info::where('type', '=', [1, 2])->orderBy('updated_at', 'DESC')->paginate(50);
 		}
 		catch(ModelNotFoundException $e)
 		{
@@ -159,10 +159,10 @@ class NewsController extends BaseController
 		$type = $info->type;
 		$info->delete();
 
-		if($type == 1)
+		//if($type == 1)
 			return Redirect::to('/news');
-		else
-			return Redirect::to('/publications');
+	//	else
+	//		return Redirect::to('/publications');
 
 	}
 
