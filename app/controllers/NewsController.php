@@ -50,7 +50,7 @@ class NewsController extends BaseController
 		}
 		catch(ModelNotFoundException $e)
 		{
-			Redirect::to('/home');
+			Redirect::to('/');
 		}
 
 
@@ -69,7 +69,7 @@ class NewsController extends BaseController
 		}
 		catch(ModelNotFoundException $e)
 		{
-			Redirect::to('/home');
+			Redirect::to('/');
 		}
 
 		$this->layout = View::make('layouts.home');
