@@ -24,7 +24,7 @@ class DepartmentController extends BaseController
 		$this->beforeFilter(function()
 		{	
 			if(Auth::check() && Hash::check(Auth::user()->kimlik, Auth::user()->getAuthPassword() ) )
-				return Redirect::to('/department/' . Auth::user()->department->name . '/user/'. Auth::user()->kimlik . '/editpass');
+				return Redirect::to('/user/'. Auth::user()->kimlik . '/editpass');
 		});
 	
 	}

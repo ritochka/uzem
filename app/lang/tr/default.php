@@ -141,4 +141,5 @@ return array(
 	'Works'                      => 'Eserler',
 	'New Courses'				 => 'Yeni Dersler',
 	'back to news'				 => 'Haberler Listesine Git',
+	'Files'						=> 'Dosya yükle',
 );

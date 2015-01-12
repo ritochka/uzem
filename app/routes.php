@@ -87,3 +87,22 @@ Route::get('/news/{id}/edit',    'NewsController@EditNews');
 Route::post('/news/{id}/edit',   'NewsController@UpdateNews');
 Route::post('/news/{id}/delete', 'NewsController@DeleteNews');
 //----------------------------------------------------
+
+// pics routes--------------------------------------
+Route::get ('/picture/list',             'FilesController@ListPics');
+Route::get ('/picture/create',           'FilesController@CreatePicture');
+Route::post('/picture/create',           'FilesController@StorePicture');
+Route::get ('/picture/{picname}',        'FilesController@Picture');
+Route::post('/picture/{picname}/update', 'FilesController@UpdatePicture');
+Route::post('/picture/{picname}/delete', 'FilesController@DeletePicture');
+//----------------------------------------------------
+
+// files routes--------------------------------------
+Route::get ('/file/list',              'FilesController@ListFiles');
+Route::get ('/file/create',            'FilesController@CreateFile');
+Route::post('/file/create',            'FilesController@StoreFile');
+Route::get ('/file/{filename}',        'FilesController@File');
+Route::post('/file/{filename}/update', 'FilesController@UpdateFile');
+Route::post('/file/{filename}/delete', 'FilesController@DeleteFile');
+
+//----------------------------------------------------
