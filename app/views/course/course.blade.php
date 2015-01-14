@@ -40,7 +40,7 @@
 					</th>
 				</tr>
 			</table>
-			<a class="btn btn-primary" href="/agreement/{{{ $course->code}}}" >
+			<a class="btn btn-primary" href="/agreement/courses/{{{ $course->code}}}/" >
 				{{{ trans('default.Enroll in class') }}}
 			</a><br/> 
 			<a href="/courses"> {{{ trans('default.back')}}} </a>

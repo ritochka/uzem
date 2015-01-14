@@ -29,8 +29,13 @@ class CourseController extends BaseController
 
 	public function Agreement($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'instructor']))
+		if(!Auth::check()) 
 			return Redirect::to('login');
+		if(!Auth::user()->hasRoles(['student', 'instructor', 'admin']))
+			return Redirect::to('login')->with('message', 'you are not a student or an instructor');
+
+		if(Auth::user()->hasEnrolled($code))
+			return Redirect::to('/inclass/'.$code);
 
 		$course = Course::where('code', $code)->first();
 
@@ -38,9 +43,25 @@ class CourseController extends BaseController
 		$this->layout->content = View::make('course.agreement')->with('course', $course);
 	}
 
+	public function AgreementPost($code)
+	{
+		if(!Auth::check()) 
+			return Redirect::to('login');
+		if(!Auth::user()->hasRoles(['student', 'instructor', 'admin']))
+			return Redirect::to('login')->with('message', 'you are not a student or an instructor');
+
+		if(Auth::user()->hasEnrolled($code))
+			return Redirect::to('/inclass/'.$code);
+		
+		$course = Course::where('code', $code)->first();
+
+        Auth::user()->enroll()->attach($course->id);
+		return Redirect::to('/inclass/'.$code);
+	}
+
 	public function Agreementreminder($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor', 'admin']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();
@@ -52,8 +73,11 @@ class CourseController extends BaseController
 
 	public function Inclass($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor', 'admin']))
 			return Redirect::to('login');
+
+		if(!Auth::user()->hasEnrolled($code))
+			return Redirect::to('/agreement/courses/'.$code);
 
 		$course = Course::where('code', $code)->first();
 
@@ -64,7 +88,7 @@ class CourseController extends BaseController
 
 	public function Awritten($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();
@@ -76,7 +100,7 @@ class CourseController extends BaseController
 
 	public function Aprogramming($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();
@@ -88,7 +112,7 @@ class CourseController extends BaseController
 
 	public function Aquizes($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();
@@ -100,7 +124,7 @@ class CourseController extends BaseController
 
 	public function Aexams($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();
@@ -112,7 +136,7 @@ class CourseController extends BaseController
 
 	public function Video($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 
 		$course = Course::where('code', $code)->first();
@@ -124,7 +148,7 @@ class CourseController extends BaseController
 
 	public function Reading($code)
 	{
-		if(!Auth::user()->hasRoles(['student', 'teacher']))
+		if(!Auth::user()->hasRoles(['student', 'instructor']))
 			return Redirect::to('login');
 		
 		$course = Course::where('code', $code)->first();

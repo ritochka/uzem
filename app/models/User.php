@@ -96,6 +96,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	}
 
+	public static function hasEnrolled($course_code)
+	{
+		if(Auth::check())
+		{
+			if(in_array($course_code, array_fetch(Auth::user()->enroll->toArray(), 'code')))
+				return true;
+		}
+		
+		return false;
+
+	}
+
 	public function interestareas()
 	{
 		return $this->belongsToMany('InterestAreas', 'interest_areas_teachers', 'instr_id', 'area_id');
@@ -114,8 +126,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	public function enroll()
 	{
-		
-
+		return $this->belongsToMany('Course', 'student_course', 'student_id', 'course_id');
 	}
 
 

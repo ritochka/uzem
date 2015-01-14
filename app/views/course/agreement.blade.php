@@ -7,9 +7,11 @@
 		{{{ trans('default.Agreement') }}}
 	</h1>
 	{{{$course->agreement_text}}}<br/>
-	<a class="btn btn-primary" href="/inclass/{{{ $course->code}}}" >
+	{{ Form::open(['url' => '/agreement/courses/'.$course->code]) }}
+	<button type="submit" class="btn btn-primary">
 		{{{ trans('default.I agree') }}}
-	</a><br/> 
+	</button>
+	{{ Form::close() }}
 
 </div>
 

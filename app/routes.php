@@ -40,7 +40,8 @@ Route::get('mycourses/{id}', 'UserController@Mycourses');
 // course routes--------------------------------------
 Route::get('course/courses', 'CourseController@Courses');
 Route::get('course/courses/{code}', 'CourseController@Course');
-Route::get('agreement/{code}', 'CourseController@Agreement');
+Route::get('agreement/courses/{code}', 'CourseController@Agreement');
+Route::post('agreement/courses/{code}', 'CourseController@AgreementPost');
 Route::get('inclass/{code}/agreementreminder', 'CourseController@Agreementreminder');
 Route::get('inclass/{code}', 'CourseController@Inclass');
 Route::get('inclass/{code}/awritten', 'CourseController@Awritten'); // awitten = written assignments
