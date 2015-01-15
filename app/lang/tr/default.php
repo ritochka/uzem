@@ -142,4 +142,5 @@ return array(
 	'New Courses'				 => 'Yeni Dersler',
 	'back to news'				 => 'Haberler Listesine Git',
 	'Files'						=> 'Dosya yükle',
+	'Visit Us at'				 => 'Sizi burda da bekleriz:',
 );

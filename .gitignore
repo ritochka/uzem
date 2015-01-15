@@ -4,6 +4,7 @@
 app/config/server
 app/config/rita
 app/config/chingiz
+app/config/database.php
 app/storage
 .ssh
 composer.phar

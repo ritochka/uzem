@@ -162,6 +162,7 @@ return array(
 	'New Courses'				 => 'New Courses',
 	'back to news'				 => 'Back to News List',
 	'Files'						 => 'Files',
+	'Visit Us at'				 => 'Visit Us Also at:',
 
 
 );
