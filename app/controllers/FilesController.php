@@ -17,7 +17,7 @@ class FilesController extends BaseController
 
 		$this->beforeFilter(function()
 		{	
-			if(!User::hasRoles(['admin', 'secretary']))
+			if(!User::hasRoles(['admin', 'secretary', 'secretary']))
 				return Redirect::guest('login');
 		}, ['only' => ['HomePic', 'PostHomePic', 'EditPage', 'UpdatePage', 'EditNews', 'UpdateNews', 'NewNews', 'CreateNews', 'ListPics', 'CreatePicture', 'StorePicture', 'Picture', 'UpdatePicture', 'DeletePicture']]);
 
@@ -33,7 +33,7 @@ class FilesController extends BaseController
 	public function HomePic()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$this->layout = View::make('layouts.home');
 			$this->layout->title = trans('default.Home');
@@ -49,7 +49,7 @@ class FilesController extends BaseController
 	{
 		
 
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$crop = Input::get('coords');
 			$file = (Input::get('dataUrl') == "")? File::get(Input::get('srcUrl')): base64_decode(Input::get('dataUrl'));
@@ -82,7 +82,7 @@ class FilesController extends BaseController
 	public function ListPics()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$pics = File::files('img/pics');
 
@@ -99,7 +99,7 @@ class FilesController extends BaseController
 	public function Picture($picname)
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			if(File::isFile('img/pics/'.$picname))
 				$pic = $picname;
@@ -119,7 +119,7 @@ class FilesController extends BaseController
 	public function UpdatePicture($picname)
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$crop = Input::get('coords');
 			$dir = 'img/pics';
@@ -151,7 +151,7 @@ class FilesController extends BaseController
 	public function CreatePicture()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$this->layout = View::make('layouts.home');
 			$this->layout->title = 'Create picture';
@@ -166,7 +166,7 @@ class FilesController extends BaseController
 	public function StorePicture()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$crop = Input::get('coords');
 			$dir = 'img/pics';
@@ -205,7 +205,7 @@ class FilesController extends BaseController
 	public function ListFiles()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$files = File::files('img/files');
 
@@ -222,7 +222,7 @@ class FilesController extends BaseController
 	public function CreateFile()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$this->layout = View::make('layouts.home');
 			$this->layout->title = 'Create file';
@@ -237,7 +237,7 @@ class FilesController extends BaseController
 	public function StoreFile()
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$file = Input::file('file');
 
@@ -259,7 +259,7 @@ class FilesController extends BaseController
 	public function File($filename)
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			if(File::isFile('img/files'.'/'.$filename))
 				$file = $filename;
@@ -279,7 +279,7 @@ class FilesController extends BaseController
 	public function UpdateFile($filename)
 	{
 		
-		if(User::hasRoles(['admin']))
+		if(User::hasRoles(['admin', 'secretary']))
 		{
 			$file = Input::file('file');
 
