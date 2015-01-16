@@ -9,5 +9,8 @@
 			<a href=""><img src="/img/google_plus_logo.png" style="height: 40px; margin: 10px;"></a>
 			<a href=""><img src="/img/linkedin_logo.png" style="height: 40px; margin: 10px;"></a>
 		</div>
+		<div style="color:#dae1ea;">
+			<center>Designed by Rita</center>
+		</div>
 	</div>
 </div>

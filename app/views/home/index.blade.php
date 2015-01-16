@@ -36,7 +36,9 @@
 	<h4 class="dep-news-header" style="text-transform: uppercase; margin-top:20px;">{{{ trans('default.Visit Us at')}}}</h4>
 	@for($i = 1; $i < 7; $i++)
 		<div class="col-sm-2 hidden-xs" style="margin-bottom:20px; margin-top:10px;">
+		<a href="" target="_blank">
 			<img src="/img/Logo/used_logos/{{{ $i }}}_{{{ App::getLocale() }}}.png" style="width:100%;" onerror="this.height=0">
+		</a>
 		</div>
 	@endfor
 </div>
