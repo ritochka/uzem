@@ -58,10 +58,10 @@ Route::get('/academic/academic', 'HomeController@ListDeps');
 
 // course routes--------------------------------------
 	Route::get ('page/{page}', 		 'HomeController@Page');
-	// Route::get ('page/{page}/edit',   'HomeController@EditPage');
-	// Route::post('page/{page}/edit',   'HomeController@UpdatePage');
-	// Route::get ('page/{page}/create', 'HomeController@NewPage');
-	// Route::post('page/{page}/create', 'HomeController@CreatePage');
+	Route::get ('page/{page}/edit',   'HomeController@EditPage');
+	Route::post('page/{page}/edit',   'HomeController@UpdatePage');
+	Route::get ('page/{page}/create', 'HomeController@NewPage');
+	Route::post('page/{page}/create', 'HomeController@CreatePage');
 
 //----------------------------------------------------
 

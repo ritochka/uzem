@@ -57,6 +57,100 @@ class HomeController extends BaseController
 		$this->layout->content = View::make('home.page')->with('page', $page);
 	}
 
+
+	public function EditPage($pagename)
+	{
+	
+
+		if(!Auth::check())
+		{
+			return Redirect::to('login');
+		}
+
+		try
+		{
+			$page = Page::where('table', '=', 'department')->where('name', '=', $pagename)->firstOrFail();
+			
+			$this->layout->title = 'Edit '.$pagename.' page';
+			$this->layout->content = View::make('page.editpage')->with('page', $page);
+		}
+		catch (ModelNotFoundException $e)
+		{
+			return Redirect::action('HomeController@NewPage', [$pagename]);
+		}
+
+	}
+
+	public function UpdatePage($pagename)
+	{
+		if(!Auth::check())
+		{
+			return Redirect::to('login');
+		}
+
+		try
+		{
+			$page = Page::where('table', '=', 'department')->where('name', '=', $pagename)->firstOrFail();
+		}
+		catch (ModelNotFoundException $e)
+		{
+			return Redirect::action('Page', [$pagename]);
+		}
+
+		$input = Input::all();
+		$validation = Validator::make($input, ['content' => 'required']);
+
+		if ($validation->passes())
+		{
+			$page[App::getLocale()] = $input['content'];
+			$page->save();
+			
+			return Redirect::to('page/'.$pagename);
+		}
+
+		return Redirect::to('page/'.$pagename.'/edit')->withInput()->withErrors($validation);
+
+	}
+
+
+	public function NewPage($pagename)
+	{
+		if(!Auth::check())
+		{
+			return Redirect::to('login');
+		}
+
+		$this->layout->title = 'Create '.$pagename.' page';
+		$this->layout->content = View::make('page.createpage')->with('pagename', $pagename);
+	}
+
+	public function CreatePage($pagename)
+	{
+		if(!Auth::check())
+		{
+			return Redirect::to('login');
+		}
+
+		$input = Input::all();
+		$validation = Validator::make($input, ['content' => 'required']);
+
+		if ($validation->passes())
+		{
+			$page = new Page;
+
+			$page->reference_id = $department->id;
+			$page->table = 'department';
+			$page->name = $pagename;
+			$page[App::getLocale()] = $input['content'];
+			$page->save();
+			
+			return Redirect::to('page/'.$pagename);
+		}
+
+		return Redirect::to('page/'.$pagename.'/create')->withInput()->withErrors($validation);
+
+	}
+
 	public function ListDeps()
 	{
 		$faculties = Faculty::where('active', '=', 1)->orderBy('order')->get();
