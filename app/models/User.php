@@ -53,10 +53,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	public function courses()
 	{
-		//return $this->belongsToMany('Course', 'instr_course', 'instr_id', 'course_id');
 		$c_ids = DB::table('instr_course')->where('course_id', '=', $this->id)->lists('instr_id');
-		$ins = Rehber::whereIn('Kimlik', $ids)->get();
-		// echo $ins; die;
+		$ins = Rehber::whereIn('Kimlik', $c_ids)->get();
 		return $ins;
 	}
 
@@ -100,7 +98,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		if(Auth::check())
 		{
-			if(in_array($course_code, array_fetch(Auth::user()->enroll->toArray(), 'code')))
+			if(in_array($course_code, array_fetch(Auth::user()->enroll->toArray(), 'derskod')))
 				return true;
 		}
 		
@@ -126,7 +124,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	public function enroll()
 	{
-		return $this->belongsToMany('Course', 'student_course', 'student_id', 'course_id');
+	//	return $this->belongsToMany('Course', 'student_course', 'student_id', 'course_id');
+		$s_ids = DB::table('student_course')->where('course_id', '=', $this->id)->lists('student_id');
+		var_dump($s_ids); die;
+		$ins = Rehber::whereIn('Kimlik', $s_ids)->get();
+		return $ins;
 	}
 
 

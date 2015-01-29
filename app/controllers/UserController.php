@@ -19,15 +19,7 @@ class UserController extends BaseController
 		
 	}
 
-	/*public function User($kimlik)
-	{
-		$user = Rehber::where('kimlik', '=', $kimlik)->firstOrFail();
 
-		$this->layout->title = $user->firstname . ' ' . $user->lastname;
-		$this->layout->content = View::make('user.user')->with('user', $user);
-	}*/
-
-	
 	public function Person($depname, $person)
 	{
 		$department = Department::where('name', '=', $depname)->firstOrFail();
@@ -70,25 +62,9 @@ class UserController extends BaseController
 		$this->layout->title = trans('default.People');
 		$this->layout->content = View::make('user.teachers')->with('personnels', $personnels)->with('faculties', $faculties);
 	}
-
-	/*public function DepartmentUser($depname, $email)
-	{
-		$department = Department::where('name', '=', $depname)->firstOrFail();
-
-		View::share('department', $department);
-
-		$user = User::where('email', '=', $email)->firstOrFail();
-
-		$this->layout = View::make('department.layouts.full');
-		$this->layout->title = $user->firstname . ' ' . $user->lastname;
-		$this->layout->content = View::make('user.user')->with('user', $user);
-	}
-	*/
+	
 	public function User($kimlik)
 	{
-		/*$department = Department::where('name', '=', $depname)->firstOrFail();
-		
-		View::share('department', $department);*/
 
 		try
 		{

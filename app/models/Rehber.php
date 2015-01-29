@@ -61,13 +61,14 @@ class Rehber extends Eloquent
 		return $this->Surname;
 	}
 
-	public function courses_dbp()
+	public function courses()
 	{
 		try
 		{
 			$db = DB::table('dbp_dersveren')->where('personel_id', '=', $this->Kimlik)->lists('dersgenelbilgi_id');			
 			$courses = Course::whereIn('id', $db)->get();
 			return $courses;
+			
 		}
 		catch (Exception $e)
 		{
@@ -76,9 +77,9 @@ class Rehber extends Eloquent
 		
 	}
 
-	public function courses()
+	/*public function courses()
 	{
 		return $this->belongsToMany('Course', 'instr_course', 'instr_id', 'course_id');
-	}
+	}*/
 
 }

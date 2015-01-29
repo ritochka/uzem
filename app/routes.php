@@ -50,6 +50,12 @@ Route::get('inclass/{code}/aquizes', 'CourseController@Aquizes'); // aquizes = q
 Route::get('inclass/{code}/aexams', 'CourseController@Aexams'); // aexams = exams
 Route::get('inclass/{code}/video', 'CourseController@Video'); 
 Route::get('inclass/{code}/reading', 'CourseController@Reading'); // areading = reading assignments
+Route::get('course/{code}/readings', 'CourseController@Readinginfo'); // reading info = readings in dbp
+Route::get('course/{code}/objectives', 'CourseController@Objectives'); // reading info = readings in dbp
+Route::get('course/{code}/weeklyplan', 'CourseController@Weeklyplan'); // reading info = readings in dbp
+Route::get('course/{code}/evaluations', 'CourseController@Evaluations'); // reading info = readings in dbp
+Route::get('course/{code}/links', 'CourseController@Links'); // reading info = readings in dbp
+
 //----------------------------------------------------
 
 // course routes--------------------------------------

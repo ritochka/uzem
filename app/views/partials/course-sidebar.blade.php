@@ -1,32 +1,50 @@
-	<a href="/inclass/{{{ $course->code }}}/video" >
-		{{{ trans('default.Video Lectures') }}} 
-	</a><br/> 
+<ul class="depsidebar">
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/video" >
+			{{{ trans('default.Video Lectures') }}} 
+		</a>
+	</li>
 
-	<a href="/inclass/{{{ $course->code }}}/reading" >
-		{{{ trans('default.Reading Materials') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/reading" >
+			{{{ trans('default.Reading Materials') }}} 
+		</a>
+	</li>
 
-	<a href="/inclass/{{{ $course->code }}}/aquizes" >
-		{{{ trans('default.Quizes') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/aquizes" >
+			{{{ trans('default.Quizes') }}} 
+		</a>
+	</li>
 
-	<a href="/inclass/{{{ $course->code }}}/awritten" >
-		{{{ trans('default.Written Assignments') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/awritten" >
+			{{{ trans('default.Written Assignments') }}} 
+		</a>
+	</li>
 
-	<a href="/inclass/{{{ $course->code }}}/aprogramming" >
-		{{{ trans('default.Programming Assignments') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/aprogramming" >
+			{{{ trans('default.Programming Assignments') }}} 
+		</a>
+	</li>
 
-	<a href="/inclass/{{{ $course->code }}}/aexams" >
-		{{{ trans('default.Exams') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/aexams" >
+			{{{ trans('default.Exams') }}} 
+		</a>
+	</li>
 
 
-	<a href="/inclass/{{{ $course->code }}}/agreementreminder" >
-		{{{ trans('default.Agreement') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}/agreementreminder" >
+			{{{ trans('default.Agreement') }}} 
+		</a>
+	</li>
 
-	<a href="/inclass/{{{ $course->code }}}" >
-		{{{ trans('default.About us') }}} 
-	</a><br/> 
+	<li>
+		<a href="/inclass/{{{ $course->derskod }}}" >
+			{{{ trans('default.About us') }}} 
+		</a>
+	</li>
+</ul>

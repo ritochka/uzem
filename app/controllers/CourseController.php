@@ -13,7 +13,7 @@ class CourseController extends BaseController
 	public function Courses()
 	{
 		// $courses = Course::all();
-		$courses = Course::all();
+		$courses = Course::where('online', '=', 1)->get();
 
 		$this->layout->title = 'Courses';
 		$this->layout->content = View::make('course.courses')->with('courses', $courses);
@@ -21,9 +21,11 @@ class CourseController extends BaseController
 
 	public function Course($code)
 	{
-		$course = Course::where('code', $code)->first();
+		$course = Course::where('derskod', $code)->first();
 
-		$this->layout->title = $course->name;
+		$this->layout = View::make('layouts.course')->with('course', $course);
+
+		$this->layout->title = $course->derskod;
 		$this->layout->content = View::make('course.course')->with('course', $course);
 	}
 
@@ -37,9 +39,9 @@ class CourseController extends BaseController
 		if(Auth::user()->hasEnrolled($code))
 			return Redirect::to('/inclass/'.$code);
 
-		$course = Course::where('code', $code)->first();
+		$course = Course::where('derskod', $code)->first();
 
-		$this->layout->title = $course->name;
+		$this->layout->title = $course->derskod;
 		$this->layout->content = View::make('course.agreement')->with('course', $course);
 	}
 
@@ -53,9 +55,9 @@ class CourseController extends BaseController
 		if(Auth::user()->hasEnrolled($code))
 			return Redirect::to('/inclass/'.$code);
 		
-		$course = Course::where('code', $code)->first();
+		$course = Course::where('derskod', $code)->first();
 
-        Auth::user()->enroll()->attach($course->id);
+        Auth::user()->enroll()->attach($course->derskod);
 		return Redirect::to('/inclass/'.$code);
 	}
 
@@ -64,7 +66,7 @@ class CourseController extends BaseController
 		if(!Auth::user()->hasRoles(['student', 'instructor', 'admin']))
 			return Redirect::to('login');
 
-		$course = Course::where('code', $code)->first();
+		$course = Course::where('derskod', $code)->first();
 
 		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
@@ -156,5 +158,55 @@ class CourseController extends BaseController
 		$this->layout=View::make('layouts.sidebar');
 		$this->layout->title = $course->name;
 		$this->layout->content = View::make('course.reading')->with('course', $course);
+	}
+	
+	public function Readinginfo($code)
+	{
+		$course = Course::where('derskod', $code)->first();
+
+		$this->layout = View::make('layouts.course')->with('course', $course);
+		$this->layout->title = $course->derskod;
+		$this->layout->content = View::make('course.coursereadings')->with('course', $course);		
+
+	}
+
+	public function Objectives($code)
+	{
+		$course = Course::where('derskod', $code)->first();
+
+		$this->layout = View::make('layouts.course')->with('course', $course);
+		$this->layout->title = $course->derskod;
+		$this->layout->content = View::make('course.objectives')->with('course', $course);		
+
+	}
+
+	public function Weeklyplan($code)
+	{
+		$course = Course::where('derskod', $code)->first();
+
+		$this->layout = View::make('layouts.course')->with('course', $course);
+		$this->layout->title = $course->derskod;
+		$this->layout->content = View::make('course.weeklyplan')->with('course', $course);		
+
+	}
+
+	public function Evaluations($code)
+	{
+		$course = Course::where('derskod', $code)->first();
+
+		$this->layout = View::make('layouts.course')->with('course', $course);
+		$this->layout->title = $course->derskod;
+		$this->layout->content = View::make('course.evaluations')->with('course', $course);		
+
+	}
+
+	public function Links($code)
+	{
+		$course = Course::where('derskod', $code)->first();
+
+		$this->layout = View::make('layouts.course')->with('course', $course);
+		$this->layout->title = $course->derskod;
+		$this->layout->content = View::make('course.links')->with('course', $course);		
+
 	}
 }

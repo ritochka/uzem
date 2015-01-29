@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'cingiz' => array('django-PC'),
-	'rita'   => array('Juma-PC'),
+	'rita'   => array('jj-PC'),
 	'server' => array('websrv'),
 
 ));

@@ -27,7 +27,7 @@ class Department extends Eloquent
 
 	public function courses()
 	{
-		return $this->hasMany('Course', 'department_id', 'personeldb_id');
+		return $this->hasMany('Course', 'bid', 'personeldb_id');
 	}
 
 	public function users()

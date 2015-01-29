@@ -4,8 +4,8 @@
 		<div class="panel-body">
 			@foreach($courses as $course) 
 				<div style="margin-left:20px">
-					<a href="/course/courses/{{{ $course->code }}}"> 
-						{{{ $course->code }}} : {{{ $course->name }}}
+					<a href="/course/courses/{{{ $course->derskod }}}"> 
+						{{{ $course->derskod }}} : {{{ $course->getName() }}}
 					</a>
 				</div>
 			@endforeach

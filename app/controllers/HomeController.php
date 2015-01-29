@@ -30,7 +30,7 @@ class HomeController extends BaseController
 
 	public function Index()
 	{
-		 $courses = Course::all();
+		 $courses = Course::where('online', '=', 1)->get();
 		 $news = News::all();
 		 
 		 $this->layout = View::make('layouts.home');
